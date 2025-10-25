@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create-pass" element={<CreatePass />} />
-        <Route path="/room" element={<Room />} />
+        <Route path="/room/:roomId" element={<Room />} />
       </Routes> 
     </BrowserRouter>
   </StrictMode>,

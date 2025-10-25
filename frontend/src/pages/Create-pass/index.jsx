@@ -1,16 +1,51 @@
 import { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ApiService from "../../services/api";
 import "../Home/home.css";
 
 function CreatePass() {
  
-  const inputCreatePass = useRef()
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const inputCreatePass = useRef();
+  const navigate = useNavigate();
 
+
+  const handleCreateRoom = async (e) => {
+    e.preventDefault();
+
+    const password = inputCreatePass.current.value.trim();
+
+    if (!password) {
+      setError("Por favor, insira uma senha");
+      return;
+    }
+
+    if (password.length < 3) {
+      setError("A senha deve ter pelo menos 3 caracteres");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await ApiService.createRoom(password);
+      navigate(`/room/${response.id}`);
+    } catch (error) {
+      console.error("Error creating room:", error);
+      setError(error.message || "Erro ao criar sala");
+    } finally {
+      setLoading(false);
+    }
+  };
+  
   return (
     <div className="home">
       <header>
-        <a href="/">
+        <Link to="/">
           <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
-        </a>
+        </Link>
       </header>
       <div id="bg">
         <div className="ball top"></div>
@@ -19,7 +54,7 @@ function CreatePass() {
       <main>
         <section>
           <h2>Crie sua própria sala</h2>
-          <form action="/room">
+          <form onSubmit={handleCreateRoom}>
             <label htmlFor="room-pass" className="sr-only">
               Insira uma senha
             </label>
@@ -29,10 +64,25 @@ function CreatePass() {
               id="room-pass"
               placeholder="Insira uma senha"
               ref={inputCreatePass}
+              disabled={loading}            
             />
-            <button>
+
+            {error && (
+              <p
+                style={{
+                  color: "var(--red)",
+                  fontSize: "1.4rem",
+                  marginBottom: "1rem",
+                  fontFamily: '"Poppins", sans-serif',
+                }}
+              >
+                {error}
+              </p>
+            )}
+
+            <button type="submit" disabled={loading}>
               <img src="/images/users-white.svg" alt="Entar na Sala" />
-              Criar sala
+              {loading ? "Criando..." : "Criar sala"}
             </button>
           </form>
         </section>

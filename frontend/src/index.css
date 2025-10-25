@@ -124,3 +124,12 @@ button.gray,
   margin-top: 3.5rem;
   height: 4.383rem;
 }
+
+
+@media (max-width: 500px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
