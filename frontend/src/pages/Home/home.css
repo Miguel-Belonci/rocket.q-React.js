@@ -14,11 +14,14 @@
   padding: 30px 10px;
 }
 
+.home #logo{
+  margin-left: 16.2rem;
+}
+
 .home #bg {
   grid-area: left;
   background: url("/images/home-bg-img.svg") no-repeat top/contain;
   background-position-x: -3rem;
-  margin-left: -21rem;
 }
 
 .home main {

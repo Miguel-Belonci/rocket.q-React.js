@@ -9,7 +9,7 @@ class ApiService {
       },
       ...options,
     };
-
+    
     if (config.body && typeof config.body === "object") {
       config.body = JSON.stringify(config.body);
     }
@@ -37,7 +37,20 @@ class ApiService {
     });
   }
 
-  
+  async enterRoom(roomId) {
+    return this.request(`/rooms/${roomId}`, {
+      method: "GET",
+    });
+  }
+
+  // Questions related methods
+
+  async createQuestion(questionTitle, roomId) {
+    return this.request("/rooms/create-question", {
+      method: "POST",
+      body: { questionTitle, roomId },
+    });
+  }
 }
 
 export default new ApiService();

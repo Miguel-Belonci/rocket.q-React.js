@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ApiService from "../../services/api";
 import "../Home/home.css";
@@ -7,20 +7,20 @@ function CreatePass() {
  
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const inputCreatePass = useRef();
+  const [inputCreatePass, setInputCreatePass] = useState()
   const navigate = useNavigate();
 
 
   const handleCreateRoom = async (e) => {
     e.preventDefault();
 
-    const password = inputCreatePass.current.value.trim();
+    const password = inputCreatePass
 
     if (!password) {
       setError("Por favor, insira uma senha");
       return;
     }
-
+    
     if (password.length < 3) {
       setError("A senha deve ter pelo menos 3 caracteres");
       return;
@@ -63,7 +63,7 @@ function CreatePass() {
               name="password"
               id="room-pass"
               placeholder="Insira uma senha"
-              ref={inputCreatePass}
+              onChange={(e) => setInputCreatePass(e.target.value)}
               disabled={loading}            
             />
 

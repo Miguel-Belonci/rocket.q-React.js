@@ -1,13 +1,17 @@
 import "./room.css";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 import Modal from "../../components/Modal/modal";
 import QuestionCards from "../../components/Question-cards/questions";
+import ApiService from "../../services/api";
+
 
 function Room() {
   // FECHA A MODAL
-  const textAreaQuestion = useRef();
-
+  const [textArea, setTextArea] = useState("");
+  const [error, setError] = useState(false);
   const [isModalOpen, SetisModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function closeModal() {
     SetisModalOpen(false);
@@ -30,6 +34,31 @@ function Room() {
     SetIsRead(true);
   }
 
+  const roomId = useParams()
+
+  const handleQuestionContent = async (e) => {
+    e.preventDefault();
+
+    const questionTitle = textArea.trim();
+  
+    if (!question) {
+      setError("Por favor, digite sua pergunta");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      await ApiService.createQuestion(questionTitle, roomId);
+    } catch (error) {
+      console.log("Error create question", error);
+      setError(error.message || "Erro ao criar a questão");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <div id="room">
@@ -38,7 +67,8 @@ function Room() {
             <img src="/images/logo.svg" alt="Rocket-Q logo" />
           </a>
           <div className="buttons">
-            <div className="button outlined" id="room-id" data-id="334254">
+            <div className="button outlined" id="room-id" data-id={roomId}>
+              {roomId}
               <img src="/images/copy.svg" alt="Copiar número da sala" />
             </div>
             <a href="/create-pass" className="button">
@@ -51,7 +81,7 @@ function Room() {
         <main id="question-form">
           <section>
             <h2>Faça sua pergunta</h2>
-            <form action="/question/create/" method="POST">
+            <form onSubmit={handleQuestionContent}>
               <label for="question" className="sr-only">
                 O que você quer perguntar?
               </label>
@@ -59,7 +89,8 @@ function Room() {
                 name="question"
                 id="question"
                 placeholder="O que você quer perguntar ?"
-                ref={textAreaQuestion}
+                onChange={(e) => setTextArea(e.target.value)}
+                disabled={loading}
               ></textarea>
 
               <footer>
@@ -67,11 +98,11 @@ function Room() {
                   <img src="/images/lock.svg" alt="Cadeado" />
                   Esta pergunta é anônima
                 </div>
-                <button>Enviar</button>
+                <button type="submit" disabled={loading}>{loading ? "Enviando" : "Enviar"}</button>
               </footer>
             </form>
           </section>
-          <QuestionCards openModal={openModal}  isRead={isRead}/>
+          <QuestionCards openModal={openModal} isRead={isRead} />
         </main>
       </div>
 
@@ -80,7 +111,7 @@ function Room() {
         closeModal={closeModal}
         ModalType={ModalType}
         markedAsRead={markedAsRead}
-          isRead={isRead}
+        isRead={isRead}
       />
     </>
   );

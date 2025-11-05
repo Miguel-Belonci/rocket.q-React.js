@@ -1,12 +1,43 @@
 import "./home.css";
+import { useState } from "react";
+import ApiService from "../../services/api";
+import { Link, useNavigate} from "react-router-dom";
 
 function Home() {
+  const [input, setInput] = useState();
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleEnterRoom = async (e) => {
+    e.preventDefault();
+
+    const roomId = input;
+
+    if (!roomId) {
+      setError("Por favor, insira um código válido");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      await ApiService.enterRoom(roomId);
+      navigate(`/room/${roomId}`);
+    } catch (error) {
+      console.error("Error enter room:", error);
+      setError(error.message || "Erro ao entrar na sala");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="home">
       <header>
-        <a href="/">
-          <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
-        </a>
+        <Link to={"/"} ><img src="/images/logo.svg" alt="Rocket.q logo" id="logo" /></Link>
       </header>
       <div id="bg">
         <div className="ball top"></div>
@@ -16,7 +47,7 @@ function Home() {
         <div className="container">
           <section>
             <h2>Entre como participante</h2>
-            <form>
+            <form onSubmit={handleEnterRoom}>
               <label htmlFor="room-id" className="sr-only">
                 Código da sala
               </label>
@@ -25,10 +56,26 @@ function Home() {
                 type="number"
                 id="room-id"
                 placeholder="Código da sala"
+                onChange={(e) => setInput(e.target.value)}
+                disabled={loading}
               />
-              <button>
+
+              {error && (
+                <p
+                  style={{
+                    color: "var(--red)",
+                    fontSize: "1.4rem",
+                    marginBottom: "1rem",
+                    fontFamily: '"Poppins", sans-serif',
+                  }}
+                >
+                  {error}
+                </p>
+              )}
+
+              <button type="submit" disabled={loading}>
                 <img src="/images/enter-room.svg" alt="Entar na Sala" />
-                Entrar na Sala
+                {loading ? "Entrando..." : "Entrar na Sala"}
               </button>
             </form>
 

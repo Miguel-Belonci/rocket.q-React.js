@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { sequelize } from "./config/database.js";
 import roomRoutes from "./routes/roomRoutes.js";
+import questionRoutes from "./routes/questionRoutes.js"
 
 
 dotenv.config();
@@ -22,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/rooms", roomRoutes);
+app.use("/api/rooms", roomRoutes, questionRoutes);
 
 // Initialize database and start server
 const startServer = async () => {
