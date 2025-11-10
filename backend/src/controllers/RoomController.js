@@ -34,6 +34,7 @@ class RoomController {
       }
       res.status(200).json({
         room: room,
+        questions: room.questions,
         message: "Room was found succssfully",
       });
     } catch (error) {

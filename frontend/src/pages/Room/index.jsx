@@ -1,10 +1,9 @@
 import "./room.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../components/Modal/modal";
 import QuestionCards from "../../components/Question-cards/questions";
 import ApiService from "../../services/api";
-
 
 function Room() {
   // FECHA A MODAL
@@ -12,6 +11,8 @@ function Room() {
   const [error, setError] = useState(false);
   const [isModalOpen, SetisModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [questions, setQuestions] = useState([]);
+  const [room, setRoom] = useState([]);
 
   function closeModal() {
     SetisModalOpen(false);
@@ -34,14 +35,40 @@ function Room() {
     SetIsRead(true);
   }
 
-  const roomId = useParams()
+  // Monta a tela da room e trás as perguntas
+
+  const { roomId } = useParams();
+  const questionTitle = textArea.trim();
+
+  useEffect(() => {
+    async function fectchData() {
+      setLoading(true);
+
+      try {
+        const response = await ApiService.enterRoom(roomId);
+
+        setQuestions(response.questions);
+        setRoom(response.room);
+      } catch (error) {
+        console.log("Erro ao rendenizar a sala", error);
+      }
+    }
+
+    fectchData();
+  }, [roomId]);
+
+  // Cria questões
+
+  const createQuestion = async (e) => {
+    e.preventDefault();
+
+    await ApiService.createQuestion(questionTitle, roomId);
+  };
 
   const handleQuestionContent = async (e) => {
     e.preventDefault();
 
-    const questionTitle = textArea.trim();
-  
-    if (!question) {
+    if (!questionTitle) {
       setError("Por favor, digite sua pergunta");
       return;
     }
@@ -98,7 +125,9 @@ function Room() {
                   <img src="/images/lock.svg" alt="Cadeado" />
                   Esta pergunta é anônima
                 </div>
-                <button type="submit" disabled={loading}>{loading ? "Enviando" : "Enviar"}</button>
+                <button type="submit" disabled={loading}>
+                  {loading ? "Enviando" : "Enviar"}
+                </button>
               </footer>
             </form>
           </section>

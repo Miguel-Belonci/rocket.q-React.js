@@ -1,7 +1,7 @@
 import "./home.css";
 import { useState } from "react";
 import ApiService from "../../services/api";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
   const [input, setInput] = useState();
@@ -10,7 +10,7 @@ function Home() {
 
   const navigate = useNavigate();
 
-  const handleEnterRoom = async (e) => {
+  const findRoom = async (e) => {
     e.preventDefault();
 
     const roomId = input;
@@ -19,25 +19,15 @@ function Home() {
       setError("Por favor, insira um código válido");
       return;
     }
-
-    setLoading(true);
-    setError("");
-
-    try {
-      await ApiService.enterRoom(roomId);
-      navigate(`/room/${roomId}`);
-    } catch (error) {
-      console.error("Error enter room:", error);
-      setError(error.message || "Erro ao entrar na sala");
-    } finally {
-      setLoading(false);
-    }
+    navigate(`/room/${roomId}`);
   };
 
   return (
     <div className="home">
       <header>
-        <Link to={"/"} ><img src="/images/logo.svg" alt="Rocket.q logo" id="logo" /></Link>
+        <Link to={"/"}>
+          <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
+        </Link>
       </header>
       <div id="bg">
         <div className="ball top"></div>
@@ -47,7 +37,7 @@ function Home() {
         <div className="container">
           <section>
             <h2>Entre como participante</h2>
-            <form onSubmit={handleEnterRoom}>
+            <form onSubmit={findRoom}>
               <label htmlFor="room-id" className="sr-only">
                 Código da sala
               </label>
