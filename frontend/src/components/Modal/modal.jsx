@@ -1,12 +1,19 @@
 import "./modal.css";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import ApiService from "../../services/api.js";
 
-function Modal({ isModalOpen, closeModal, ModalType, markedAsRead}) {
-  const inputPassword = useRef();
-  const text = ModalType === "check" ? "Marcar como lida" : "Excluir"
-  const color = ModalType === "check" ? "" : "red"
+function Modal({
+  isModalOpen,
+  closeModal,
+  ModalType,
+  markedAsRead,
+  roomId,
+  questionId,
+}) {
+  const [inputPassword, setInputPassword] = useState();
+  const text = ModalType === "check" ? "Marcar como lida" : "Excluir";
+  const color = ModalType === "check" ? "" : "red";
   if (!isModalOpen) return null;
-
   return (
     <div className="modal-wrapper">
       <div className="modal">
@@ -22,14 +29,17 @@ function Modal({ isModalOpen, closeModal, ModalType, markedAsRead}) {
             name="password"
             id="password"
             placeholder="Digite sua senha"
-            ref={inputPassword}
+            onChange={(e) => setInputPassword(e.target.value)}
           />
 
           <div className="buttons">
             <div onClick={closeModal} className="button gray cancel">
               Cancelar
             </div>
-            <button onClick={markedAsRead} className={color}>{`Sim, ${text.toLocaleLowerCase()}`}</button>
+            <button className={color}>
+              {" "}
+              {`Sim, ${text.toLocaleLowerCase()}`}{" "}
+            </button>
           </div>
         </form>
       </div>

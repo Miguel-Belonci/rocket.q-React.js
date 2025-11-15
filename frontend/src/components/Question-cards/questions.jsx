@@ -1,6 +1,7 @@
 import "./questions.css";
 
-function QuestionCards({ openModal, isRead }) {
+function QuestionCards({ openModal, isRead, question }) {
+
   return (
     <section id="question">
       <h2 className="sr-only">Perguntas da comunidade</h2>
@@ -11,7 +12,7 @@ function QuestionCards({ openModal, isRead }) {
               <img src="/images/1user.svg" alt="Avatar" />
             </div>
             <div className="question">
-              <p> </p>
+              <p> {question.title} </p>
             </div>
           </div>
 
@@ -20,7 +21,7 @@ function QuestionCards({ openModal, isRead }) {
               href="#"
               className="check"
               data-id=""
-              onClick={() => openModal("check")}
+              onClick={() => openModal("check", question.id)}
             >
               <img src="/images/check.svg" alt="Marcar como lida" />
               {isRead ? "Pergunta lida" : "Marcar como lida"}
@@ -29,7 +30,7 @@ function QuestionCards({ openModal, isRead }) {
               href="#"
               className="delete"
               data-id=""
-              onClick={() => openModal("delete")}
+              onClick={() => openModal("delete", question.id)}
             >
               <img src="/images/trash.svg" alt="Excluir" />
               Excluir

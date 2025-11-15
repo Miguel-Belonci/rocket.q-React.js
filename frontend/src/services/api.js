@@ -48,9 +48,16 @@ class ApiService {
   async createQuestion(questionTitle, roomId) {
     return this.request("/rooms/create-question", {
       method: "POST",
-      body: { questionTitle, roomId },
+      body: { questionTitle, roomId }
     });
   }
+
+  // async deleteQuestion(questionId, roomId, password) {
+  //   return this.request(`/rooms/${questionId}`, {
+  //     method: "DELETE",
+  //     body: {roomId, password}
+  //   })
+  // }
 }
 
 export default new ApiService();

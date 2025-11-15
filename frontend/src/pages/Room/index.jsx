@@ -12,8 +12,8 @@ function Room() {
   const [isModalOpen, SetisModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
-  const [room, setRoom] = useState([]);
-
+  const [questionId, setQuestionId] = useState()
+  
   function closeModal() {
     SetisModalOpen(false);
   }
@@ -22,9 +22,10 @@ function Room() {
 
   const [ModalType, SetModalType] = useState(null);
 
-  function openModal(type) {
+  function openModal(type, questionId) {
     SetisModalOpen(true);
     SetModalType(type);
+    setQuestionId(questionId)
   }
 
   // DEFINE SE A QUESTÃO FOI LIDA OU NÃO
@@ -36,34 +37,25 @@ function Room() {
   }
 
   // Monta a tela da room e trás as perguntas
-
   const { roomId } = useParams();
   const questionTitle = textArea.trim();
 
   useEffect(() => {
     async function fectchData() {
       setLoading(true);
-
       try {
         const response = await ApiService.enterRoom(roomId);
-
-        setQuestions(response.questions);
-        setRoom(response.room);
+        setQuestions((response.questions));
       } catch (error) {
         console.log("Erro ao rendenizar a sala", error);
       }
     }
 
     fectchData();
+    setLoading(false);
   }, [roomId]);
 
   // Cria questões
-
-  const createQuestion = async (e) => {
-    e.preventDefault();
-
-    await ApiService.createQuestion(questionTitle, roomId);
-  };
 
   const handleQuestionContent = async (e) => {
     e.preventDefault();
@@ -77,7 +69,9 @@ function Room() {
     setError("");
 
     try {
-      await ApiService.createQuestion(questionTitle, roomId);
+      const response = await ApiService.createQuestion(questionTitle, roomId);
+      setQuestions((prevQuestions => [...prevQuestions, response.question]))
+      setTextArea("")
     } catch (error) {
       console.log("Error create question", error);
       setError(error.message || "Erro ao criar a questão");
@@ -85,6 +79,8 @@ function Room() {
       setLoading(false);
     }
   };
+
+  console.log(questions);
 
   return (
     <>
@@ -118,7 +114,21 @@ function Room() {
                 placeholder="O que você quer perguntar ?"
                 onChange={(e) => setTextArea(e.target.value)}
                 disabled={loading}
+                value={textArea}
               ></textarea>
+
+              {error && (
+                <p
+                  style={{
+                    color: "var(--red)",
+                    fontSize: "1.4rem",
+                    marginBottom: "1rem",
+                    fontFamily: '"Poppins", sans-serif',
+                  }}
+                >
+                  {error}
+                </p>
+              )}
 
               <footer>
                 <div>
@@ -131,7 +141,25 @@ function Room() {
               </footer>
             </form>
           </section>
-          <QuestionCards openModal={openModal} isRead={isRead} />
+          {questions.length === 0 ? (
+            <div class="no-questions">
+              <img src="/images/chat.svg" alt="sem perguntas" />
+              <p>Nenhuma pergunta por aqui...</p>
+              <p>
+                Faça a primeira pergunda e envie o <br />
+                código da sala para outras pessoas!
+              </p>
+            </div>
+          ) : (
+            questions.map((question) => (
+              <QuestionCards
+                openModal={openModal}
+                isRead={isRead}
+                question={question}
+                key={question.id}
+              />
+            ))
+          )}
         </main>
       </div>
 
@@ -141,6 +169,8 @@ function Room() {
         ModalType={ModalType}
         markedAsRead={markedAsRead}
         isRead={isRead}
+        roomId={roomId}
+        questionId={questionId}
       />
     </>
   );
