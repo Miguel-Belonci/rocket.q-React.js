@@ -8,4 +8,6 @@ router.post("/create-question", QuestionController.create)
 
 // router.delete("/:questionId", QuestionController.delete)
 
+router.put("/read-question", QuestionController.read)
+
 export default router

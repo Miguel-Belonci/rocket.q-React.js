@@ -46,18 +46,18 @@ class ApiService {
   // Questions related methods
 
   async createQuestion(questionTitle, roomId) {
-    return this.request("/rooms/create-question", {
+    return this.request("/questions/create-question", {
       method: "POST",
       body: { questionTitle, roomId }
     });
   }
 
-  // async deleteQuestion(questionId, roomId, password) {
-  //   return this.request(`/rooms/${questionId}`, {
-  //     method: "DELETE",
-  //     body: {roomId, password}
-  //   })
-  // }
+ async readQuestion(questionId, pass){
+  return this.request("/questions/read-question", {
+    method: "PUT",
+    body: {questionId,pass}
+  })
+ }
 }
 
 export default new ApiService();

@@ -12,8 +12,8 @@ function Room() {
   const [isModalOpen, SetisModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
-  const [questionId, setQuestionId] = useState()
-  
+  const [questionId, setQuestionId] = useState();
+
   function closeModal() {
     SetisModalOpen(false);
   }
@@ -25,15 +25,17 @@ function Room() {
   function openModal(type, questionId) {
     SetisModalOpen(true);
     SetModalType(type);
-    setQuestionId(questionId)
+    setQuestionId(questionId);
   }
 
   // DEFINE SE A QUESTÃO FOI LIDA OU NÃO
 
-  const [isRead, SetIsRead] = useState(false);
-
-  function markedAsRead() {
-    SetIsRead(true);
+  function markedAsRead(questionId) {
+  setQuestions((prev) =>
+          prev.map((q) =>
+            q.id === questionId ? { ...q, isAnswered: true } : q
+          )
+        );
   }
 
   // Monta a tela da room e trás as perguntas
@@ -45,7 +47,7 @@ function Room() {
       setLoading(true);
       try {
         const response = await ApiService.enterRoom(roomId);
-        setQuestions((response.questions));
+        setQuestions(response.questions);
       } catch (error) {
         console.log("Erro ao rendenizar a sala", error);
       }
@@ -70,8 +72,8 @@ function Room() {
 
     try {
       const response = await ApiService.createQuestion(questionTitle, roomId);
-      setQuestions((prevQuestions => [...prevQuestions, response.question]))
-      setTextArea("")
+      setQuestions((prevQuestions) => [...prevQuestions, response.question]);
+      setTextArea("");
     } catch (error) {
       console.log("Error create question", error);
       setError(error.message || "Erro ao criar a questão");
@@ -79,8 +81,6 @@ function Room() {
       setLoading(false);
     }
   };
-
-  console.log(questions);
 
   return (
     <>
@@ -90,7 +90,12 @@ function Room() {
             <img src="/images/logo.svg" alt="Rocket-Q logo" />
           </a>
           <div className="buttons">
-            <div className="button outlined" id="room-id" data-id={roomId}>
+            <div
+              onClick={() => navigator.clipboard.writeText(roomId)}
+              className="button outlined"
+              id="room-id"
+              data-id={roomId}
+            >
               {roomId}
               <img src="/images/copy.svg" alt="Copiar número da sala" />
             </div>
@@ -154,9 +159,9 @@ function Room() {
             questions.map((question) => (
               <QuestionCards
                 openModal={openModal}
-                isRead={isRead}
                 question={question}
                 key={question.id}
+                isRead={question.isAnswered}
               />
             ))
           )}
@@ -168,7 +173,6 @@ function Room() {
         closeModal={closeModal}
         ModalType={ModalType}
         markedAsRead={markedAsRead}
-        isRead={isRead}
         roomId={roomId}
         questionId={questionId}
       />

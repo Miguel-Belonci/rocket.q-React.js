@@ -23,7 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/rooms", roomRoutes, questionRoutes);
+app.use("/api/rooms", roomRoutes);
+app.use("/api/questions", questionRoutes);
 
 // Initialize database and start server
 const startServer = async () => {
