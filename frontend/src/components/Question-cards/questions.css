@@ -1,65 +1,65 @@
-.question-wrapper{
-    background-color: var(--light-blue);
-    border-radius: 0 .8rem .8rem .8rem;
-    margin-bottom: .8rem;
-    padding: 2rem;
+.question-wrapper {
+  background-color: var(--light-blue);
+  border-radius: 0 0.8rem 0.8rem 0.8rem;
+  margin-bottom: 0.8rem;
+  padding: 2rem;
 }
 
-.question-wrapper .question-content{
-    display: flex;
-    align-items: flex-start;
+.question-wrapper .question-content {
+  display: flex;
+  align-items: flex-start;
 }
 
-.question-wrapper .question-content .user{
-    clip-path: circle();
-    background: var(--blue);
-    padding: 1.4rem;
+.question-wrapper .question-content .user {
+  clip-path: circle();
+  background: var(--blue);
+  padding: 1.4rem;
 }
 
-.question-wrapper .question-content p{
-    margin-left: 1.6rem;
-    display: flex;
-    align-items: center;
-    word-break: break-word;
-    min-height: 5.2rem;
+.question-wrapper .question-content p {
+  margin-left: 1.6rem;
+  display: flex;
+  align-items: center;
+  word-break: break-word;
+  min-height: 5.2rem;
 }
 
-.question-wrapper .actions{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.question-wrapper .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.question-wrapper .actions > a{
-    display: flex;
-    align-items: center;
-    color: var(--gray-dark);
+.question-wrapper .actions > a {
+  display: flex;
+  align-items: center;
+  color: var(--gray-dark);
 }
 
-.question-wrapper .actions > a > img{
-    margin-right: .8rem;
+.question-wrapper .actions > a > img {
+  margin-right: 0.8rem;
 }
 
-.question-wrapper .actions > a + a{
-    margin-left: 2.4rem;
+.question-wrapper .actions > a + a {
+  margin-left: 2.4rem;
 }
 
 /* Question Read CSS */
-.question-wrapper.read{
-    background-color: var(--gray-medium);
+.question-wrapper.read {
+  background-color: var(--gray-medium);
 }
 
-.question-wrapper.read .question-content .user{
-    background-color: var(--gray-blue);
+.question-wrapper.read .question-content .user {
+  background-color: var(--gray-blue);
 }
 
-.question-wrapper .actions .marked{
-    display: flex;
-    align-items: center;
-    color: var(--gray-dark);
-    margin-right: 2.4rem;
+.question-wrapper .actions .marked {
+  display: flex;
+  align-items: center;
+  color: var(--gray-dark);
+  margin-right: 2.4rem;
 }
 
-.question-wrapper .actions .marked img{
-    margin-right: .8rem;
+.question-wrapper .actions .marked img {
+  margin-right: 0.8rem;
 }

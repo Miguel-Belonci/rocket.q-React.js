@@ -1,7 +1,6 @@
 import "./questions.css";
 
 function QuestionCards({ openModal, isRead, question }) {
-
   return (
     <section id="question">
       <h2 className="sr-only">Perguntas da comunidade</h2>

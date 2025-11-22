@@ -1,129 +1,125 @@
 #room {
-    max-width: min(112rem, 90%);
-    margin: 0 auto;
+  max-width: min(112rem, 90%);
+  margin: 0 auto;
 }
 
-#room header{
-    width: 100%;
+#room header {
+  width: 100%;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-#room header .buttons{
-    display: flex;
+#room header .buttons {
+  display: flex;
 }
 
-#room header .buttons .button:nth-child(1){
-    margin-right: .8rem;
-    padding: 1.3rem 1.6rem;
+#room header .buttons .button:nth-child(1) {
+  margin-right: 0.8rem;
+  padding: 1.3rem 1.6rem;
 }
 
-#room header .buttons .button:nth-child(1) img{
-    margin-left: 1rem;
-    height: 2rem;
-    width: 2rem;
-    
+#room header .buttons .button:nth-child(1) img {
+  margin-left: 1rem;
+  height: 2rem;
+  width: 2rem;
 }
 
-#room header .buttons .button:nth-child(2){
-    flex-shrink: 0;
-    white-space: nowrap;
-    padding: 1.3rem 3.2rem;
-   }
-
-#room header .button:nth-child(2) img{
-    width: 2rem;
-    height: 2rem;
-    
+#room header .buttons .button:nth-child(2) {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 1.3rem 3.2rem;
 }
 
+#room header .button:nth-child(2) img {
+  width: 2rem;
+  height: 2rem;
+}
 
-#room header #logo{
-    margin-right: 2rem;
+#room header #logo {
+  margin-right: 2rem;
 }
 
 /* Question Form CSS */
 
-#question-form h2{
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.8rem;
-    color:var(--black);
-    font-weight: 700;
-    margin-top: 7.5rem;
-    margin-bottom: 3rem;
+#question-form h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.8rem;
+  color: var(--black);
+  font-weight: 700;
+  margin-top: 7.5rem;
+  margin-bottom: 3rem;
 }
 
-#question-form form{
-    border: .2rem solid var(--gray-blue);
-    padding: 1.6rem;
-    border-radius: 0 .8rem .8rem .8rem;
-    margin-bottom: 1.5rem;
+#question-form form {
+  border: 0.2rem solid var(--gray-blue);
+  padding: 1.6rem;
+  border-radius: 0 0.8rem 0.8rem 0.8rem;
+  margin-bottom: 1.5rem;
 }
 
-#question-form textarea{
-    resize: none;
-    background-color: transparent;
-    outline: none;
-    width: 100%;
+#question-form textarea {
+  resize: none;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
 }
 
-#question-form textarea::placeholder{
-    color: var(--gray-blue);
+#question-form textarea::placeholder {
+  color: var(--gray-blue);
 }
 
-#question-form form footer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+#question-form form footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#question-form form footer > div{
-    display: flex;
-    align-items: center;
+#question-form form footer > div {
+  display: flex;
+  align-items: center;
 
-    color: var(--icons-details);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 1.4rem;
+  color: var(--icons-details);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
 }
 
-#question-form form footer > div img{
-    margin-right: .9rem;
+#question-form form footer > div img {
+  margin-right: 0.9rem;
 }
 
-#question-form form footer button{
-    height: auto;
-    padding: .8rem 2.4rem;
-    line-height: 2.4rem;
+#question-form form footer button {
+  height: auto;
+  padding: 0.8rem 2.4rem;
+  line-height: 2.4rem;
 }
 
 /* NO QUESTIONS CSS */
-.no-questions{
-    text-align:center ;
-    margin-top: 5.2rem;
+.no-questions {
+  text-align: center;
+  margin-top: 5.2rem;
 }
 
-.no-questions img{
-    max-width: 100%;
-    margin-bottom: 1.2rem;
+.no-questions img {
+  max-width: 100%;
+  margin-bottom: 1.2rem;
 }
 
-.no-questions p{
-    font-size: 1.8rem;
-    color: var(--black);
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
+.no-questions p {
+  font-size: 1.8rem;
+  color: var(--black);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
-.no-questions > p + p{
-    font-size: 1.4rem;
-    color: var(--gray-blue);
-    font-weight: 400;
-    margin-top: 1.3rem;
-    line-height: 1.9rem;
+.no-questions > p + p {
+  font-size: 1.4rem;
+  color: var(--gray-blue);
+  font-weight: 400;
+  margin-top: 1.3rem;
+  line-height: 1.9rem;
 }
-

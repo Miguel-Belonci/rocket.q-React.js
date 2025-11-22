@@ -1,12 +1,10 @@
-import "./home.css";
 import { useState } from "react";
-import ApiService from "../../services/api";
 import { Link, useNavigate } from "react-router-dom";
+import "./home.css";
 
 function Home() {
   const [input, setInput] = useState();
   const [error, setError] = useState();
-  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -47,7 +45,6 @@ function Home() {
                 id="room-id"
                 placeholder="Código da sala"
                 onChange={(e) => setInput(e.target.value)}
-                disabled={loading}
               />
 
               {error && (
@@ -63,9 +60,8 @@ function Home() {
                 </p>
               )}
 
-              <button type="submit" disabled={loading}>
+              <button type="submit">
                 <img src="/images/enter-room.svg" alt="Entar na Sala" />
-                {loading ? "Entrando..." : "Entrar na Sala"}
               </button>
             </form>
 

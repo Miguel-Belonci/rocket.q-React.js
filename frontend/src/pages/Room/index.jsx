@@ -1,41 +1,35 @@
-import "./room.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../components/Modal/modal";
 import QuestionCards from "../../components/Question-cards/questions";
 import ApiService from "../../services/api";
+import "./room.css";
 
 function Room() {
   // FECHA A MODAL
   const [textArea, setTextArea] = useState("");
   const [error, setError] = useState(false);
-  const [isModalOpen, SetisModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [questionId, setQuestionId] = useState();
+  const [modalType, setModalType] = useState(null);
 
   function closeModal() {
-    SetisModalOpen(false);
+    setIsModalOpen(false);
   }
 
-  // ABRE A MODAL E LIDA COM OS TEXTOS DA MODAL
-
-  const [ModalType, SetModalType] = useState(null);
-
   function openModal(type, questionId) {
-    SetisModalOpen(true);
-    SetModalType(type);
+    setIsModalOpen(true);
+    setModalType(type);
     setQuestionId(questionId);
   }
 
   // DEFINE SE A QUESTÃO FOI LIDA OU NÃO
-
   function markedAsRead(questionId) {
-  setQuestions((prev) =>
-          prev.map((q) =>
-            q.id === questionId ? { ...q, isAnswered: true } : q
-          )
-        );
+    setQuestions((prev) =>
+      prev.map((q) => (q.id === questionId ? { ...q, isAnswered: true } : q))
+    );
   }
 
   // Monta a tela da room e trás as perguntas
@@ -50,15 +44,15 @@ function Room() {
         setQuestions(response.questions);
       } catch (error) {
         console.log("Erro ao rendenizar a sala", error);
+      } finally {
+        setLoading(false);
       }
     }
 
     fectchData();
-    setLoading(false);
   }, [roomId]);
 
   // Cria questões
-
   const handleQuestionContent = async (e) => {
     e.preventDefault();
 
@@ -82,7 +76,9 @@ function Room() {
     }
   };
 
-  return (
+  return loading ? (
+    <div className="loading-screen">Carregando...</div>
+  ) : (
     <>
       <div id="room">
         <header>
@@ -171,7 +167,7 @@ function Room() {
       <Modal
         isModalOpen={isModalOpen}
         closeModal={closeModal}
-        ModalType={ModalType}
+        modalType={modalType}
         markedAsRead={markedAsRead}
         roomId={roomId}
         questionId={questionId}

@@ -36,7 +36,8 @@ class QuestionController {
 
   async read(req, res) {
     try {
-      const { questionId, pass} = req.body;
+      const { questionId, pass } = req.body;
+
       const question = await Question.findByPk(questionId, {
         include: { model: Room, as: "room" },
       });
@@ -52,18 +53,19 @@ class QuestionController {
       const isValidPassword = await question.room.checkPassword(pass);
 
       if (!isValidPassword) {
-        return res.status(401).json({ error: "invalid password" });
+        return res.status(401).json({ error: "Invalid password" });
       }
-      question.isAnswered = true
-      await question.save()
 
-      res.status(200).json({ 
-        message:"This question was read!",
-        question: question
-      })
+      question.isAnswered = true;
+      await question.save();
+
+      res.status(200).json({
+        message: "This question was read!",
+        question: question,
+      });
     } catch (error) {
-      console.log("Error read question",error)
-      return res.status(500).json({error: "Failed to check question", error})
+      console.log("Error read question", error);
+      return res.status(500).json({ error: "Failed to check question", error });
     }
   }
 }
