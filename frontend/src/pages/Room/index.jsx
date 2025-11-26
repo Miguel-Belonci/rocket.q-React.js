@@ -112,7 +112,7 @@ function Room() {
           <section>
             <h2>Faça sua pergunta</h2>
             <form onSubmit={handleQuestionContent}>
-              <label for="question" className="sr-only">
+              <label htmlFor="question" className="sr-only">
                 O que você quer perguntar?
               </label>
               <textarea
@@ -149,7 +149,7 @@ function Room() {
             </form>
           </section>
           {questions.length === 0 ? (
-            <div class="no-questions">
+            <div className="no-questions">
               <img src="/images/chat.svg" alt="sem perguntas" />
               <p>Nenhuma pergunta por aqui...</p>
               <p>
