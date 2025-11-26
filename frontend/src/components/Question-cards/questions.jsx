@@ -20,7 +20,10 @@ function QuestionCards({ openModal, isRead, question }) {
               href="#"
               className="check"
               data-id=""
-              onClick={() => openModal("check", question.id)}
+              onClick={() => !isRead && openModal("check", question.id)}
+              style={{
+                cursor: isRead ? "default" : "pointer"
+              }}
             >
               <img src="/images/check.svg" alt="Marcar como lida" />
               {isRead ? "Pergunta lida" : "Marcar como lida"}

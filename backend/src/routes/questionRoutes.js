@@ -6,7 +6,7 @@ const router = express.Router()
 // POST create a new quwstion
 router.post("/create-question", QuestionController.create)
 
-// router.delete("/:questionId", QuestionController.delete)
+router.delete("/delete-question", QuestionController.delete)
 
 router.put("/read-question", QuestionController.read)
 

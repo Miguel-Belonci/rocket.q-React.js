@@ -16,7 +16,7 @@ class QuestionController {
       if (!questionTitle) {
         return res
           .status(400)
-          .json({ error: "You need to write a question before submit" });
+          .json({ error: "você precisa escrever uma pergunta antes de enviar o formulário" });
       }
 
       const question = await Question.create({ title: questionTitle, roomId });
@@ -24,13 +24,13 @@ class QuestionController {
       return res.status(201).json({
         question: question,
         id: question.id,
-        message: "question created successfully",
+        message: "questão criada com sucesso!",
       });
     } catch (error) {
-      console.log("Error create a new question", error);
+      console.log("Erro ao criar questão", error);
       return res
         .status(500)
-        .json({ error: "Failed to create question", error });
+        .json({ error: "Falha ao criar questão", error });
     }
   }
 
@@ -43,17 +43,17 @@ class QuestionController {
       });
 
       if (!question) {
-        return res.status(404).json({ error: "Question not found" });
+        return res.status(404).json({ error: "Questâo não encontrada" });
       }
 
       if (!pass) {
-        return res.status(400).json({ error: "Password is required" });
+        return res.status(400).json({ error: "A senha é obrigatória" });
       }
 
       const isValidPassword = await question.room.checkPassword(pass);
 
       if (!isValidPassword) {
-        return res.status(401).json({ error: "Invalid password" });
+        return res.status(401).json({ error: "Senha inválida" });
       }
 
       question.isAnswered = true;
@@ -64,8 +64,42 @@ class QuestionController {
         question: question,
       });
     } catch (error) {
-      console.log("Error read question", error);
-      return res.status(500).json({ error: "Failed to check question", error });
+      console.log("Erro ao ler questão", error);
+      return res.status(500).json({ error: "Falha ao marcar como lida esta pergunta", error });
+    }
+  }
+
+  async delete(req, res){
+    try {
+      const {questionId, pass} = req.body;
+
+      const question = await Question.findByPk(questionId, {
+        include: { model: Room, as: "room" },
+      });
+
+      if (!question) {
+        return res.status(404).json({ error: "Questâo não encontrada" });
+      }
+
+      if (!pass) {
+        return res.status(400).json({ error: "A senha é obrigatória" });
+      }
+
+      const isValidPassword = await question.room.checkPassword(pass);
+
+      if (!isValidPassword) {
+        return res.status(401).json({ error: "Senha inválida" });
+      }
+
+     await question.destroy()
+      
+     res.status(200).json({
+      message: "questão excluida com sucesso!"
+     })
+
+    } catch (error) {
+      console.log("Erro ao excluir pergunta", error);
+      return res.status(500).json({ error: "Erro ao excluir esta pergunta", error });
     }
   }
 }

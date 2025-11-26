@@ -32,6 +32,12 @@ function Room() {
     );
   }
 
+  // Exclui uma pergunta
+
+  function removeQuestion(questionId) {
+    setQuestions(prev => prev.filter(q => q.id !== questionId));
+  }
+
   // Monta a tela da room e trás as perguntas
   const { roomId } = useParams();
   const questionTitle = textArea.trim();
@@ -169,7 +175,7 @@ function Room() {
         closeModal={closeModal}
         modalType={modalType}
         markedAsRead={markedAsRead}
-        roomId={roomId}
+        removeQuestion={removeQuestion}
         questionId={questionId}
       />
     </>

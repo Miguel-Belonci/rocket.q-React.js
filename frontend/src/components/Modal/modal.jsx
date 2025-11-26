@@ -7,7 +7,7 @@ function Modal({
   closeModal,
   modalType,
   markedAsRead,
-  roomId,
+  removeQuestion,
   questionId,
 }) {
   const [inputPassword, setInputPassword] = useState();
@@ -19,21 +19,27 @@ function Modal({
     e.preventDefault();
 
     try {
+      const pass = inputPassword;
+
+      if (!pass) {
+        setError("Por favor digite sua senha");
+        return;
+      }
       if (modalType === "check") {
-        const pass = inputPassword;
-
-        if (!pass) {
-          setError("Por favor Digite sua senha");
-          return;
-        }
-
         await ApiService.readQuestion(questionId, pass);
 
         markedAsRead(questionId);
         closeModal();
       }
+
+      if (modalType === "delete") {
+        await ApiService.deleteQuestion(questionId, pass)
+
+        removeQuestion(questionId)
+        closeModal()
+      }
     } catch (error) {
-      console.log("Erro ao marcar a pergunta como lida", error);
+    console.log(modalType === "check" ? "Erro ao marcar a pergunta como lida" : "Erro ao excluir a pergunta", error);
       setError("Senha incorreta");
     }
   }

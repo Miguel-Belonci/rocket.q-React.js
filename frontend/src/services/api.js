@@ -57,6 +57,13 @@ class ApiService {
       body: { questionId, pass },
     });
   }
+
+  async deleteQuestion(questionId, pass) {
+    return this.request(`/questions/delete-question`, {
+      method: "DELETE",
+      body: { pass, questionId },
+    });
+  }
 }
 
 export default new ApiService();
