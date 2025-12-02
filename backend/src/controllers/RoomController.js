@@ -1,4 +1,5 @@
 import { Room, Question } from "../models/index.js";
+import GenerateCodeUnique from "../config/utils/generateCode.js";
 
 class RoomController {
   // Create a new room
@@ -10,10 +11,13 @@ class RoomController {
         return res.status(400).json({ error: "Password is required" });
       }
 
-      const room = await Room.create({ password });
+      const code = await GenerateCodeUnique(Room);
+
+      const room = await Room.create({ password, code });
 
       return res.status(201).json({
         id: room.id,
+        code: room.code,
         message: "Room created successfully",
       });
     } catch (error) {
@@ -24,8 +28,9 @@ class RoomController {
 
   async Enter(req, res) {
     try {
-      const roomId = req.params.roomId;
-      const room = await Room.findByPk(roomId, {
+      const code = req.params.code;
+      const room = await Room.findOne({
+        where: { code },
         include: { model: Question, as: "questions" },
       });
 

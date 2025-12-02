@@ -37,17 +37,17 @@ class ApiService {
     });
   }
 
-  async enterRoom(roomId) {
-    return this.request(`/rooms/${roomId}`, {
+  async enterRoom(code) {
+    return this.request(`/rooms/${code}`, {
       method: "GET",
     });
   }
 
   // Questions related methods
-  async createQuestion(questionTitle, roomId) {
+  async createQuestion(questionTitle, code) {
     return this.request("/questions/create-question", {
       method: "POST",
-      body: { questionTitle, roomId },
+      body: { questionTitle, code},
     });
   }
 

@@ -31,7 +31,7 @@ function CreatePass() {
 
     try {
       const response = await ApiService.createRoom(password);
-      navigate(`/room/${response.id}`);
+      navigate(`/room/${response.code}`);
     } catch (error) {
       console.error("Error creating room:", error);
       setError(error.message || "Erro ao criar sala");

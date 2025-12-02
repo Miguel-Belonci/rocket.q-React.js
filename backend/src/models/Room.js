@@ -18,6 +18,10 @@ const Room = sequelize.define(
         len: [1, 255],
       },
     },
+    code: {
+      type: DataTypes.INTEGER,
+      allowNull:false,
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,

@@ -11,13 +11,13 @@ function Home() {
   const findRoom = async (e) => {
     e.preventDefault();
 
-    const roomId = input;
+    const code = input;
 
-    if (!roomId) {
+    if (!code) {
       setError("Por favor, insira um código válido");
       return;
     }
-    navigate(`/room/${roomId}`);
+    navigate(`/room/${code}`);
   };
 
   return (
@@ -62,6 +62,7 @@ function Home() {
 
               <button type="submit">
                 <img src="/images/enter-room.svg" alt="Entar na Sala" />
+                Entrar na sala
               </button>
             </form>
 

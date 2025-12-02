@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal/modal";
 import QuestionCards from "../../components/Question-cards/questions";
 import ApiService from "../../services/api";
@@ -14,6 +14,7 @@ function Room() {
   const [questions, setQuestions] = useState([]);
   const [questionId, setQuestionId] = useState();
   const [modalType, setModalType] = useState(null);
+  const navigate = useNavigate()
 
   function closeModal() {
     setIsModalOpen(false);
@@ -39,24 +40,25 @@ function Room() {
   }
 
   // Monta a tela da room e trás as perguntas
-  const { roomId } = useParams();
+  const { code } = useParams();
   const questionTitle = textArea.trim();
 
   useEffect(() => {
     async function fectchData() {
       setLoading(true);
       try {
-        const response = await ApiService.enterRoom(roomId);
+        const response = await ApiService.enterRoom(code);
         setQuestions(response.questions);
       } catch (error) {
         console.log("Erro ao rendenizar a sala", error);
+        navigate("/room/error")
       } finally {
         setLoading(false);
       }
     }
 
     fectchData();
-  }, [roomId]);
+  }, [code]);
 
   // Cria questões
   const handleQuestionContent = async (e) => {
@@ -71,7 +73,7 @@ function Room() {
     setError("");
 
     try {
-      const response = await ApiService.createQuestion(questionTitle, roomId);
+      const response = await ApiService.createQuestion(questionTitle, code);
       setQuestions((prevQuestions) => [...prevQuestions, response.question]);
       setTextArea("");
     } catch (error) {
@@ -93,12 +95,12 @@ function Room() {
           </a>
           <div className="buttons">
             <div
-              onClick={() => navigator.clipboard.writeText(roomId)}
+              onClick={() => navigator.clipboard.writeText(code)}
               className="button outlined"
               id="room-id"
-              data-id={roomId}
+              data-id={code}
             >
-              {roomId}
+              {code}
               <img src="/images/copy.svg" alt="Copiar número da sala" />
             </div>
             <a href="/create-pass" className="button">
