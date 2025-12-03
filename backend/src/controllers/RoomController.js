@@ -26,7 +26,7 @@ class RoomController {
     }
   }
 
-  async Enter(req, res) {
+  async enter(req, res) {
     try {
       const code = req.params.code;
       const room = await Room.findOne({
@@ -45,6 +45,38 @@ class RoomController {
     } catch (error) {
       console.error("Error enter room", error);
       return res.status(500).json({ error: "Failed to enter room" });
+    }
+  }
+
+  async delete(req, res) {
+    try {
+      const { pass, code } = req.body;
+      const room = await Room.findOne({
+        where: { code },
+        include: { model: Question, as: "questions" },
+      });
+      if (!code) {
+        return res.status(400).json({ error: "Code is required" });
+      }
+      if (!pass) {
+        return res.status(400).json({ error: "Password is required" });
+      }
+      if (!room) {
+        return res.status(404).json({ error: "Sala não encontrada" });
+      }
+      const isValidPassword = room.checkPassword(pass);
+      if (!isValidPassword) {
+        return res.status(401).json({ error: "Senha inválida" });
+      }
+      await room.destroy();
+      res.status(200).json({
+        message: "sala excluída com sucesso",
+      });
+    } catch (error) {
+      console.log("Erro ao excluir sala", error);
+      return res
+        .status(500)
+        .json({ error: "Falha ao excluir esta sala", error });
     }
   }
 }

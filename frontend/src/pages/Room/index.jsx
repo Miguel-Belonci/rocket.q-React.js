@@ -107,6 +107,7 @@ function Room() {
               <img src="/images/users-white.svg" alt="Criar uma sala" />
               Criar Sala
             </a>
+            <button onClick={() => openModal("delete-room")} type="submit" className="delete-button">Excluir Sala</button>
           </div>
         </header>
 
@@ -179,6 +180,7 @@ function Room() {
         markedAsRead={markedAsRead}
         removeQuestion={removeQuestion}
         questionId={questionId}
+        roomCode={code}
       />
     </>
   );

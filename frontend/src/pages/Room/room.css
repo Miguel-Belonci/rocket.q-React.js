@@ -39,6 +39,12 @@
   height: 2rem;
 }
 
+#room header .delete-button {
+  margin-left: 3rem;
+  padding: 1.3rem 3.2rem;
+  background-color: var(--red);
+}
+
 #room header #logo {
   margin-right: 2rem;
 }

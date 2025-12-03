@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ApiService from "../../services/api.js";
+import { useNavigate } from "react-router-dom";
 import "./modal.css";
 
 function Modal({
@@ -9,17 +10,20 @@ function Modal({
   markedAsRead,
   removeQuestion,
   questionId,
+  roomCode,
 }) {
   const [inputPassword, setInputPassword] = useState();
   const [error, setError] = useState();
   const text = modalType === "check" ? "Marcar como lida" : "Excluir";
   const color = modalType === "check" ? "" : "red";
+  const navigate = useNavigate()
 
   async function handleClick(e) {
     e.preventDefault();
 
     try {
       const pass = inputPassword;
+      const code = roomCode
 
       if (!pass) {
         setError("Por favor digite sua senha");
@@ -33,13 +37,22 @@ function Modal({
       }
 
       if (modalType === "delete") {
-        await ApiService.deleteQuestion(questionId, pass)
+        await ApiService.deleteQuestion(questionId, pass);
 
-        removeQuestion(questionId)
-        closeModal()
+        removeQuestion(questionId);
+        closeModal();
+      }
+      if (modalType === "delete-room") {
+        await ApiService.deleteRoom(pass, code);
+        navigate("/")
       }
     } catch (error) {
-    console.log(modalType === "check" ? "Erro ao marcar a pergunta como lida" : "Erro ao excluir a pergunta", error);
+      console.log(
+        modalType === "check"
+          ? "Erro ao marcar a pergunta como lida"
+          : "Erro ao excluir a pergunta",
+        error
+      );
       setError("Senha incorreta");
     }
   }
@@ -53,8 +66,12 @@ function Modal({
     isModalOpen && (
       <div className="modal-wrapper">
         <div className="modal">
-          <h2>{`${text} esta pergunta ?`}</h2>
-          <p>{`Tem certeza que deseja ${text.toLocaleLowerCase()} esta \n pergunta ?`}</p>
+          <h2>{`${text} ${
+            modalType === "delete-room" ? "esta sala" : "esta pergunta"
+          } ?`}</h2>
+          <p>{`Tem certeza que deseja ${text.toLocaleLowerCase()} ${
+            modalType === "delete-room" ? "esta \n sala" : "esta \n pergunta"
+          } ?`}</p>
 
           <form>
             <label htmlFor="password" className="sr-only">

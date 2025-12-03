@@ -43,11 +43,18 @@ class ApiService {
     });
   }
 
+  async deleteRoom(pass, code) {
+    return this.request("/rooms/delete", {
+      method: "DELETE",
+      body: { pass, code },
+    });
+  }
+
   // Questions related methods
   async createQuestion(questionTitle, code) {
     return this.request("/questions/create-question", {
       method: "POST",
-      body: { questionTitle, code},
+      body: { questionTitle, code },
     });
   }
 
