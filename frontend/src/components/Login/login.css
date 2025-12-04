@@ -1,0 +1,46 @@
+.login-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: var(--blue);
+
+  display: flex;
+}
+
+.login-box {
+  margin: auto;
+  background-color: var(--white);
+  width: min(40rem, 90%);
+  height: 58rem;
+  padding: 4.4rem;
+  display: flex;
+
+  border-radius: 0.8rem;
+
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  flex-direction: column;
+}
+
+.login-box input {
+  border: 0.2rem solid var(--gray-blue);
+  margin-top: 2rem;
+  border-radius: 0.4rem;
+  outline: none;
+  padding: 0 1.6rem;
+}
+
+.login-box a:nth-of-type(1) {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.login-box button {
+  margin-top: 1.5rem;
+}
+
+.signup {
+  margin-top: 1.5rem;
+}
