@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { sequelize } from "./config/database.js";
 import roomRoutes from "./routes/roomRoutes.js";
 import questionRoutes from "./routes/questionRoutes.js"
+import registerRoutes from "./routes/roomRoutes.js"
 
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/api/rooms", roomRoutes);
 app.use("/api/questions", questionRoutes);
+app.use("/api/register", registerRoutes )
 
 // Initialize database and start server
 const startServer = async () => {

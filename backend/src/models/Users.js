@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 const Users = sequelize.define(
   "Users",
   {
-    id: { type: DataTypes.INTEGER, primarykey: true, autoIncrement: true },
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     email: { type: DataTypes.TEXT, allowNull: false },
     password: {
       type: DataTypes.STRING,

@@ -71,6 +71,21 @@ class ApiService {
       body: { pass, questionId },
     });
   }
+
+  // Login and Submit related methods
+  async createUser(email, password){
+    return this.request("/register/create", {
+      method: "POST",
+      body: {email, password}
+    })
+  }
+
+  async auth(email, password){
+    return this.request("/register/auth",{
+      method: "GET",
+      body: {email, password}
+    })
+  }
 }
 
 export default new ApiService();

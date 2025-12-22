@@ -24,6 +24,11 @@
   flex-direction: column;
 }
 
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
 .login-box header{
   display: flex;
   justify-content: space-between;

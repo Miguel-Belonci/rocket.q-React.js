@@ -3,8 +3,8 @@ import Home from "./pages/Home/index.jsx";
 import CreatePass from "./pages/Create-pass/index.jsx";
 import Room from "./pages/Room/index.jsx";
 import RoomError from "./pages/RoomError/index.jsx";
-import Login from "./components/Login/login.jsx";
-import Signup from "./components/Signup/signup.jsx";
+import Login from "./pages/Login/login.jsx";
+import Signup from "./pages/Signup/signup.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 
