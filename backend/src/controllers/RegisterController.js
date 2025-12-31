@@ -2,6 +2,7 @@ import Users from "../models/Users.js";
 
 class RegisterController {
   async create(req, res) {
+    console.log("BODY RECEBIDO:", req.body);
     try {
       const { email, password } = req.body;
 
@@ -45,13 +46,20 @@ class RegisterController {
         where: {email}
       })
 
+      if(!user){
+        return res.status(401).json({error: "Úsuário ou senha inválida"})
+      }
+
       const isValidPassword = user.checkPassword(password)
       if (!isValidPassword) {
-        res.status(401).json({error: "senha inválida"})
+       return res.status(401).json({error: "Usuário ou senha inválida"})
       }
 
     } catch (error) {
-      
+      console.log("Erro ao acessar sua conta", error);
+      return res
+        .status(500)
+        .json({ error: "Falha ao fazer login", error });
     }
   }
 }

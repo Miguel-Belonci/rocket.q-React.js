@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { sequelize } from "./config/database.js";
 import roomRoutes from "./routes/roomRoutes.js";
 import questionRoutes from "./routes/questionRoutes.js"
-import registerRoutes from "./routes/roomRoutes.js"
+import registerRoutes from "./routes/registerRoutes.js"
 
 
 dotenv.config();

@@ -57,16 +57,19 @@ function Signup() {
             placeholder="Email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <input
             placeholder="Senha"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <input
             placeholder="Confirme sua senha"
             type="password"
             onChange={(e) => setPasswordConfirm(e.target.value)}
+            value={passwordConfirm}
           />
 
           {error && (

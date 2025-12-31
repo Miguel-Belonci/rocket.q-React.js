@@ -33,13 +33,13 @@ async function handleLogin() {
           <input
             placeholder="Email"
             type="email"
-            onChange={() => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input
             placeholder="Senha"
             type="password"
-            onChange={() => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
 

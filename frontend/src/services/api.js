@@ -82,7 +82,7 @@ class ApiService {
 
   async auth(email, password){
     return this.request("/register/auth",{
-      method: "GET",
+      method: "POST",
       body: {email, password}
     })
   }
