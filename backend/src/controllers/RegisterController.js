@@ -1,4 +1,5 @@
 import Users from "../models/Users.js";
+import  jwt from "jsonwebtoken";
 
 class RegisterController {
   async create(req, res) {
@@ -32,9 +33,9 @@ class RegisterController {
     }
   }
 
-  async auth (req, res) {
+  async auth(req, res) {
     try {
-      const {email, password} = req.body
+      const { email, password } = req.body;
 
       if (!password || !email) {
         return res
@@ -43,23 +44,26 @@ class RegisterController {
       }
 
       const user = await Users.findOne({
-        where: {email}
-      })
+        where: { email },
+      });
 
-      if(!user){
-        return res.status(401).json({error: "Úsuário ou senha inválida"})
+      if (!user) {
+        return res.status(401).json({ error: "Úsuário ou senha inválida" });
       }
 
-      const isValidPassword = user.checkPassword(password)
+      const isValidPassword = await user.checkPassword(password);
       if (!isValidPassword) {
-       return res.status(401).json({error: "Usuário ou senha inválida"})
+        return res.status(401).json({ error: "Usuário ou senha inválida" });
       }
 
+      const token = jwt.sign({ id: user.id }, "secret", { expiresIn: "1d" });
+
+      const { id } = user
+
+      return res.status(200).json({ user: {id, email}, token });
     } catch (error) {
       console.log("Erro ao acessar sua conta", error);
-      return res
-        .status(500)
-        .json({ error: "Falha ao fazer login", error });
+      return res.status(500).json({ error: "Falha ao fazer login", error });
     }
   }
 }

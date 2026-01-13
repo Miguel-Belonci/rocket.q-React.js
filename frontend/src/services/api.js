@@ -3,9 +3,11 @@ const API_BASE_URL = "http://localhost:3001/api";
 class ApiService {
   async request(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
+    const token = localStorage.getItem("@Auth:token");
     const config = {
       headers: {
         "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` }),
       },
       ...options,
     };
@@ -73,18 +75,18 @@ class ApiService {
   }
 
   // Login and Submit related methods
-  async createUser(email, password){
+  async createUser(email, password) {
     return this.request("/register/create", {
       method: "POST",
-      body: {email, password}
-    })
+      body: { email, password },
+    });
   }
 
-  async auth(email, password){
-    return this.request("/register/auth",{
+  async auth(email, password) {
+    return this.request("/register/auth", {
       method: "POST",
-      body: {email, password}
-    })
+      body: { email, password },
+    });
   }
 }
 

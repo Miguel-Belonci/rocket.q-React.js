@@ -1,22 +1,17 @@
 import "./login.css";
 import { useState } from "react";
-import ApiService from "../../services/api.js"
 
 function Login() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
-async function handleLogin() {
-  if (!inputPassword || !inputEmail) {
-    setError("Email e senha são obrigatórios")
-
-    const response = await ApiService.auth(email,password)
-    if (!response) {
-      setError("Não foi possível realizar o login")
-    }
+  async function handleLogin(e) {
+    e.preventDefault();
+    if (!password || !email) {
+      setError("Email e senha são obrigatórios");
+    }      
   }
-}
 
   return (
     <div className="login-container">
@@ -42,6 +37,19 @@ async function handleLogin() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
+
+          {error && (
+            <p
+              style={{
+                color: "var(--red)",
+                fontSize: "1.4rem",
+                marginTop: "2rem",
+                fontFamily: '"Poppins", sans-serif',
+              }}
+            >
+              {error}
+            </p>
+          )}
 
           <a href="">Esqueceu a senha?</a>
 
