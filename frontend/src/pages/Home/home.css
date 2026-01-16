@@ -12,6 +12,9 @@
 .home header {
   grid-area: header;
   padding: 30px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .home #logo{
@@ -84,6 +87,7 @@
   clip-path: circle();
   opacity: 0.1;
   position: fixed;
+  pointer-events: none;
 }
 
 .home .ball.top {
@@ -91,9 +95,11 @@
   width: 63.3rem;
   right: -35rem;
   height: 63.3rem;
+  pointer-events: none;
 }
 
 .home .ball.bottom {
   right: 5.6rem;
   bottom: -15rem;
+  pointer-events: none;
 }

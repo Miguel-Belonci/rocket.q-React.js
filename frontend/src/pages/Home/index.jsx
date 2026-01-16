@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./home.css";
+import UserMenu from "../../components/Menu/userMenu";
 
 function Home() {
   const [input, setInput] = useState();
@@ -26,6 +27,7 @@ function Home() {
         <Link to={"/"}>
           <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
         </Link>
+        <UserMenu></UserMenu>
       </header>
       <div id="bg">
         <div className="ball top"></div>
