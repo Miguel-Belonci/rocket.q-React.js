@@ -74,10 +74,10 @@ function Home() {
           </section>
           <section>
             <h2>Crie sua própria sala, de forma fácil</h2>
-            <a href="/create-pass" className="button outlined">
+            <Link to="/create-pass" className="button outlined">
               <img src="/images/users.svg" alt="Criar Sala" />
               Criar Sala
-            </a>
+            </Link>
           </section>
         </div>
       </main>
