@@ -1,18 +1,14 @@
 import express from "express";
 import RoomController from "../controllers/RoomController.js";
+import AuthMiddleware from "../../Middlewares/auth.js";
 
 const router = express.Router();
 
 // POST /api/rooms/create - Create a new room
-router.post("/create", RoomController.create);
+router.post("/create", AuthMiddleware, RoomController.create);
 
-router.get("/:code", RoomController.enter)
+router.get("/:code", AuthMiddleware, RoomController.enter);
 
-router.delete("/delete", RoomController.delete)
+router.delete("/delete", AuthMiddleware, RoomController.delete);
 
 export default router;
-
-
-
-
-

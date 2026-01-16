@@ -10,7 +10,6 @@ function CreatePass() {
   const [inputCreatePass, setInputCreatePass] = useState()
   const navigate = useNavigate();
 
-
   const handleCreateRoom = async (e) => {
     e.preventDefault();
 

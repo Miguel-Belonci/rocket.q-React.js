@@ -1,12 +1,14 @@
 import "../Login/login.css";
 import { useState } from "react";
 import Apiservice from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState();
+  const navigate = useNavigate()
 
   async function handleCreateUser(e) {
     e.preventDefault();
@@ -30,6 +32,7 @@ function Signup() {
     try {
       await Apiservice.createUser(email, password);
       setError("");
+      navigate("/login")
     } catch (error) {
       if (error.message) {
         setError(error.message);

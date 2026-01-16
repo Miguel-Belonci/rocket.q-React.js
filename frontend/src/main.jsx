@@ -7,17 +7,23 @@ import Login from "./pages/Login/login.jsx";
 import Signup from "./pages/Signup/signup.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
+import { AuthProvider } from "./context/auth.jsx";
+import PrivateRoutes from "./routes/privateRoutes.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    {/* Routes */}
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/create-pass" element={<CreatePass />} />
-      <Route path="/room/:code" element={<Room />} />
-      <Route path="/room/error" element={<RoomError />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-    </Routes>
-  </BrowserRouter>
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/create-pass" element={<CreatePass />} />
+          <Route path="/room/:code" element={<Room />} />
+          <Route path="/room/error" element={<RoomError />} />
+        </Route>
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>
 );
