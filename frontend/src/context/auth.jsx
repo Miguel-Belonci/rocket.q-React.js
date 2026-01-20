@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }) => {
         signed: !!user,
         loading,
         signIn,
+        setUser,
       }}
     >
       {children}

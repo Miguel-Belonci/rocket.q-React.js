@@ -9,7 +9,6 @@
   border: none;
   cursor: pointer;
   padding: 4px;
-  border-radius: 50%;
   margin-right: 10rem;
 }
 
@@ -20,14 +19,14 @@
   margin-top: 1.8rem;
 }
 
-.opitions-box {
+.options-box {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 
   min-width: 160px;
   background-color: #ffffff;
@@ -36,4 +35,19 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   padding: 6px 0;
   z-index: 1000;
+}
+
+.options-box button,
+.options-box a {
+  width: 100%;
+  padding: 10px 16px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  justify-content: left;
+  text-align: left;
+  color: black;
+  font-family: "Poppins", sans-serif;
 }

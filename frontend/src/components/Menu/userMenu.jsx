@@ -1,28 +1,52 @@
-import { useState } from "react";
-import "./menu.css"
+import { useState, useRef, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/auth";
+import { Link } from "react-router-dom";
+import "./menu.css";
 
 function UserMenu() {
   const [isActive, setActive] = useState(false);
+  const dropdownRef = useRef(null);
+  const {setUser} = useContext(AuthContext)
+
+  useEffect(() => {
+    function handleOutsideClick(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setActive(false);
+      }
+    }
+
+    if (isActive) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [isActive]);
+
+  function handleLogout(){
+    localStorage.removeItem("@Auth:token")
+    localStorage.removeItem("@Auth:user")
+
+    setUser(null)
+    setActive(false)
+  }
 
   return (
-    <div
-      className="menu-container"
-      onMouseLeave={() => {
-        setActive(false);
-      }}
-    >
+    <div className="menu-container">
       <button
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation()
           setActive(!isActive);
         }}
       >
-        <img src="/images/userMenu.svg" alt="user-menu"/>
+        <img src="/images/userMenu.svg" alt="user-menu" />
       </button>
 
       {isActive && (
-        <nav className="opitions-box">
-          <a href="#">alguma coisa</a>
-          <a href="#">alguma coisa</a>
+        <nav className="options-box" ref={dropdownRef}>
+          <Link to={"/"}>Página do usuário</Link>
+          <button onClick={handleLogout}>Logout</button>
         </nav>
       )}
     </div>
