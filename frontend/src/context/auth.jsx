@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     const response = await ApiService.auth(email, password);
 
     if (response.error) {
-      alert(response.error);
+      return response.error;
     } else {
       setUser(response.user);
       localStorage.setItem("@Auth:token", response.token);

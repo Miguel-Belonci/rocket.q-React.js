@@ -5,6 +5,7 @@ import Room from "./pages/Room/index.jsx";
 import RoomError from "./pages/RoomError/index.jsx";
 import Login from "./pages/Login/login.jsx";
 import Signup from "./pages/Signup/signup.jsx";
+import UserPage from "./pages/UserPage/userPage.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import { AuthProvider } from "./context/auth.jsx";
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/create-pass" element={<CreatePass />} />
           <Route path="/room/:code" element={<Room />} />
           <Route path="/room/error" element={<RoomError />} />
+          <Route path="/user" element={<UserPage />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

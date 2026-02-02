@@ -1,47 +1,48 @@
-.login-container {
+.profile-container {
   top: 0;
   left: 0;
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: var(--blue);
 
   display: flex;
 }
 
-.login-box {
+.profile-box {
   margin: auto;
   background-color: var(--white);
-  width: min(48rem, 90%);
-  height: 58rem;
+  width: min(55rem, 90%);
+  height: 50rem;
   padding: 4.4rem;
   display: flex;
 
   border-radius: 0.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
   font-family: "Poppins", sans-serif;
   text-align: center;
   flex-direction: column;
 }
 
-.login-box form {
+.profile-box form {
   display: flex;
   flex-direction: column;
 }
 
-.login-box header{
+.profile-box header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+  height: 5rem;
 }
 
-.login-box header h2 {
+.profile-box header h2 {
   font-size: 2.8rem;
   color: var(--black);
 }
 
-.login-box input {
+.profile-box input {
   border: 0.2rem solid var(--gray-blue);
   margin-top: 2rem;
   border-radius: 0.4rem;
@@ -49,13 +50,20 @@
   padding: 0 1.6rem;
 }
 
-.login-box a{
+.profile-box a {
   margin-top: 1rem;
   font-size: 1.5rem;
 }
 
-.login-box button {
+.profile-box button {
+  margin-top: 4rem;
+}
+
+.signup {
   margin-top: 1.5rem;
 }
 
-
+#logo img{
+    width: 8em;
+    height: 8rem;
+}

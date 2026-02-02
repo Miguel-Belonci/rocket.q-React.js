@@ -15,8 +15,14 @@ function Login() {
     if (!password || !email) {
       setError("Email e senha são obrigatórios");
     }
+    try {
+      await signIn(email, password);
+    } catch (error) {
+      console.log("Falha ao fazer login", error)
+      setError(error.message)
+    }
+    
 
-    await signIn(email, password);
   }
 
   if (signed) {

@@ -45,7 +45,7 @@ function UserMenu() {
 
       {isActive && (
         <nav className="options-box" ref={dropdownRef}>
-          <Link to={"/"}>Página do usuário</Link>
+          <Link to={"/user"}>Página do usuário</Link>
           <button onClick={handleLogout}>Logout</button>
         </nav>
       )}
