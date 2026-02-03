@@ -88,6 +88,14 @@ class ApiService {
       body: { email, password },
     });
   }
+
+  // user related methods
+  async changePassword(password, newPassword){
+    return this.request("/user/new-password", {
+      method: "POST",
+      body: {password, newPassword}
+    })
+  }
 }
 
 export default new ApiService();

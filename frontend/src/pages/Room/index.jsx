@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal/modal";
 import QuestionCards from "../../components/Question-cards/questions";
 import ApiService from "../../services/api";
+import UserMenu from "../../components/Menu/userMenu";
 import "./room.css";
 
 function Room() {
@@ -14,7 +15,7 @@ function Room() {
   const [questions, setQuestions] = useState([]);
   const [questionId, setQuestionId] = useState();
   const [modalType, setModalType] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function closeModal() {
     setIsModalOpen(false);
@@ -29,14 +30,14 @@ function Room() {
   // DEFINE SE A QUESTÃO FOI LIDA OU NÃO
   function markedAsRead(questionId) {
     setQuestions((prev) =>
-      prev.map((q) => (q.id === questionId ? { ...q, isAnswered: true } : q))
+      prev.map((q) => (q.id === questionId ? { ...q, isAnswered: true } : q)),
     );
   }
 
   // Exclui uma pergunta
 
   function removeQuestion(questionId) {
-    setQuestions(prev => prev.filter(q => q.id !== questionId));
+    setQuestions((prev) => prev.filter((q) => q.id !== questionId));
   }
 
   // Monta a tela da room e trás as perguntas
@@ -51,7 +52,7 @@ function Room() {
         setQuestions(response.questions);
       } catch (error) {
         console.log("Erro ao rendenizar a sala", error);
-        navigate("/room/error")
+        navigate("/room/error");
       } finally {
         setLoading(false);
       }
@@ -90,26 +91,39 @@ function Room() {
     <>
       <div id="room">
         <header>
-          <a href="/" id="logo">
-            <img src="/images/logo.svg" alt="Rocket-Q logo" />
-          </a>
-          <div className="buttons">
-            <div
-              onClick={() => navigator.clipboard.writeText(code)}
-              className="button outlined"
-              id="room-id"
-              data-id={code}
-            >
-              {code}
-              <img src="/images/copy.svg" alt="Copiar número da sala" />
-            </div>
-            <a href="/create-pass" className="button">
-              <img src="/images/users-white.svg" alt="Criar uma sala" />
-              Criar Sala
-            </a>
-            <button onClick={() => openModal("delete-room")} type="submit" className="delete-button">Excluir Sala</button>
-          </div>
-        </header>
+  <a href="/" id="logo">
+    <img src="/images/logo.svg" alt="Rocket-Q logo" />
+  </a>
+
+  <div className="header-actions">
+    <div className="buttons">
+      <div
+        onClick={() => navigator.clipboard.writeText(code)}
+        className="button outlined"
+        id="room-id"
+        data-id={code}
+      >
+        {code}
+        <img src="/images/copy.svg" alt="Copiar número da sala" />
+      </div>
+
+      <a href="/create-pass" className="button">
+        <img src="/images/users-white.svg" alt="Criar uma sala" />
+        Criar Sala
+      </a>
+
+      <button
+        onClick={() => openModal("delete-room")}
+        type="submit"
+        className="delete-button"
+      >
+        Excluir Sala
+      </button>
+    </div>
+
+    <UserMenu />
+  </div>
+</header>
 
         <main id="question-form">
           <section>

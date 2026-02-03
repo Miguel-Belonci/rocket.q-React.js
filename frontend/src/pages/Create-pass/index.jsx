@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ApiService from "../../services/api";
+import UserMenu from "../../components/Menu/userMenu";
 import "../Home/home.css";
 
 function CreatePass() {
@@ -45,6 +46,7 @@ function CreatePass() {
         <Link to="/">
           <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
         </Link>
+        <UserMenu></UserMenu>
       </header>
       <div id="bg">
         <div className="ball top"></div>
