@@ -1,11 +1,13 @@
 import "./userPage.css";
 import { useState } from "react";
-import ApiService from "../../services/api"
+import ApiService from "../../services/api";
 
 function UserPage() {
   const [password, setPassword] = useState("");
   const [newpassword, setNewPassword] = useState("");
   const [error, setError] = useState();
+  const userStorage = localStorage.getItem("@Auth:user");
+  const user = userStorage ? JSON.parse(userStorage) : null;
 
   async function handleChangePassword(e) {
     e.preventDefault();
@@ -24,55 +26,63 @@ function UserPage() {
     if (errorMessage) {
       setError(errorMessage);
       return;
-    } 
+    }
 
-    await ApiService.changePassword(password, newpassword)
+    try {
+      await ApiService.changePassword(password, newpassword, user.email);
+      setError("")
+      alert("Senha alterada com sucesso!")
+    } catch (error) {
+      console.log("Erro ao alterar senha", error)
+      setError(error.message)
+    }
 
+    
   }
 
-    return (
-      <div className="profile-container">
-        <div className="profile-box">
-          <header>
-            <a href="/" id="logo">
-              <img src="/images/logo.svg" alt="Rocket-Q logo" />
-            </a>
+  return (
+    <div className="profile-container">
+      <div className="profile-box">
+        <header>
+          <a href="/" id="logo">
+            <img src="/images/logo.svg" alt="Rocket-Q logo" />
+          </a>
 
-            <h2>Alterar Senha</h2>
-          </header>
+          <h2>Alterar Senha</h2>
+        </header>
 
-          <form onSubmit={handleChangePassword}>
-            <input
-              placeholder="Senha atual"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-            <input
-              placeholder="Nova senha"
-              type="password"
-              onChange={(e) => setNewPassword(e.target.value)}
-              value={newpassword}
-            />
+        <form onSubmit={handleChangePassword}>
+          <input
+            placeholder="Senha atual"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <input
+            placeholder="Nova senha"
+            type="password"
+            onChange={(e) => setNewPassword(e.target.value)}
+            value={newpassword}
+          />
 
-            {error && (
-              <p
-                style={{
-                  color: "var(--red)",
-                  fontSize: "1.4rem",
-                  marginTop: "2rem",
-                  fontFamily: '"Poppins", sans-serif',
-                }}
-              >
-                {error}
-              </p>
-            )}
+          {error && (
+            <p
+              style={{
+                color: "var(--red)",
+                fontSize: "1.4rem",
+                marginTop: "2rem",
+                fontFamily: '"Poppins", sans-serif',
+              }}
+            >
+              {error}
+            </p>
+          )}
 
-            <button type="submit">Confirmar</button>
-          </form>
-        </div>
+          <button type="submit">Confirmar</button>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default UserPage;

@@ -1,5 +1,5 @@
 import Users from "../models/Users.js";
-import  jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 class RegisterController {
   async create(req, res) {
@@ -58,9 +58,9 @@ class RegisterController {
 
       const token = jwt.sign({ id: user.id }, "secret", { expiresIn: "1d" });
 
-      const { id } = user
+      const { id } = user;
 
-      return res.status(200).json({ user: {id, email}, token });
+      return res.status(200).json({ user: { id, email }, token });
     } catch (error) {
       console.log("Erro ao acessar sua conta", error);
       return res.status(500).json({ error: "Falha ao fazer login", error });

@@ -19,7 +19,7 @@ const Users = sequelize.define(
   {
     tableName: "users",
     hooks: {
-      beforeCreate: async (users) => {
+      beforeSave: async (users) => {
         if (users.password) {
           const salt = await bcrypt.genSalt(10);
           users.password = await bcrypt.hash(users.password, salt);
