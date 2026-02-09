@@ -15,6 +15,11 @@ const Users = sequelize.define(
         len: [1, 255],
       },
     },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "user",
+    },
   },
   {
     tableName: "users",
@@ -26,11 +31,11 @@ const Users = sequelize.define(
         }
       },
     },
-  }
+  },
 );
 
 Users.prototype.checkPassword = async function (password) {
-    return await bcrypt.compare(password, this.password)
-}
+  return await bcrypt.compare(password, this.password);
+};
 
 export default Users;

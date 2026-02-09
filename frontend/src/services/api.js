@@ -90,10 +90,10 @@ class ApiService {
   }
 
   // user related methods
-  async changePassword(password, newPassword, email){
+  async changePassword(password, newPassword){
     return this.request("/user/new-password", {
       method: "POST",
-      body: {password, newPassword, email}
+      body: {password, newPassword}
     })
   }
 }

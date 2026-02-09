@@ -6,9 +6,8 @@ function UserPage() {
   const [password, setPassword] = useState("");
   const [newpassword, setNewPassword] = useState("");
   const [error, setError] = useState();
-  const userStorage = localStorage.getItem("@Auth:user");
-  const user = userStorage ? JSON.parse(userStorage) : null;
-
+  const [success, setSuccess] = useState()
+  
   async function handleChangePassword(e) {
     e.preventDefault();
 
@@ -29,9 +28,9 @@ function UserPage() {
     }
 
     try {
-      await ApiService.changePassword(password, newpassword, user.email);
+      await ApiService.changePassword(password, newpassword);
       setError("")
-      alert("Senha alterada com sucesso!")
+      setSuccess("Senha alterada com sucesso!")
     } catch (error) {
       console.log("Erro ao alterar senha", error)
       setError(error.message)
@@ -70,11 +69,24 @@ function UserPage() {
               style={{
                 color: "var(--red)",
                 fontSize: "1.4rem",
-                marginTop: "2rem",
+                marginTop: "1.5rem",
                 fontFamily: '"Poppins", sans-serif',
               }}
             >
               {error}
+            </p>
+          )}
+
+          {success && (
+            <p
+              style={{
+                color: "var(--blue)",
+                fontSize: "1.4rem",
+                marginTop: "1.5rem",
+                fontFamily: '"Poppins", sans-serif',
+              }}
+            >
+              {success}
             </p>
           )}
 

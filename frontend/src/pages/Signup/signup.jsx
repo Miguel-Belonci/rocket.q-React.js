@@ -9,8 +9,7 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState();
-  const { signed } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { signed, signIn } = useContext(AuthContext);
 
   async function handleCreateUser(e) {
     e.preventDefault();
@@ -38,7 +37,7 @@ function Signup() {
     try {
       await Apiservice.createUser(email, password);
       setError("");
-      navigate("/login");
+       await signIn(email, password)
     } catch (error) {
       if (error.message) {
         setError(error.message);

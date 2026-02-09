@@ -3,7 +3,8 @@ import Users from "../models/Users.js";
 class UserContoller {
   async changePassword(req, res) {
     try {
-      const { password, newPassword, email } = req.body;
+      const { password, newPassword } = req.body;
+      const id = req.userId
 
       if (!password || !newPassword) {
         return res
@@ -11,7 +12,7 @@ class UserContoller {
           .json({ error: "A senha atual e a nova senha são obrigatórias" });
       }
 
-      const user = await Users.findOne({ where: { email } });
+      const user = await Users.findOne({ where: { id } });
 
       const isValidPassword = await user.checkPassword(password);
       if (!isValidPassword) {
