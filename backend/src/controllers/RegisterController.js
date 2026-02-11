@@ -56,7 +56,9 @@ class RegisterController {
         return res.status(401).json({ error: "Usuário ou senha inválida" });
       }
 
-      const token = jwt.sign({ id: user.id }, "secret", { expiresIn: "1d" });
+      const token = jwt.sign({ id: user.id, role: user.role }, "secret", {
+        expiresIn: "1d",
+      });
 
       const { id } = user;
 

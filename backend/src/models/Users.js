@@ -24,10 +24,10 @@ const Users = sequelize.define(
   {
     tableName: "users",
     hooks: {
-      beforeSave: async (users) => {
-        if (users.password) {
+      beforeSave: async (user) => {
+        if (user.changed("password")) {
           const salt = await bcrypt.genSalt(10);
-          users.password = await bcrypt.hash(users.password, salt);
+          user.password = await bcrypt.hash(user.password, salt);
         }
       },
     },
