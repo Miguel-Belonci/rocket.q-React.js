@@ -90,11 +90,17 @@ class ApiService {
   }
 
   // user related methods
-  async changePassword(password, newPassword){
+  async changePassword(password, newPassword) {
     return this.request("/user/new-password", {
       method: "POST",
-      body: {password, newPassword}
-    })
+      body: { password, newPassword },
+    });
+  }
+
+  async getUsers() {
+    return this.request("/user/users-list", {
+      method: "GET",
+    });
   }
 }
 

@@ -6,7 +6,7 @@ import "./menu.css";
 function UserMenu() {
   const [isActive, setActive] = useState(false);
   const dropdownRef = useRef(null);
-  const {setUser} = useContext(AuthContext)
+  const {setUser, isAdmin} = useContext(AuthContext)
 
   useEffect(() => {
     function handleOutsideClick(e) {
@@ -47,6 +47,9 @@ function UserMenu() {
         <nav className="options-box" ref={dropdownRef}>
           <Link to={"/user"}>Página do usuário</Link>
           <button onClick={handleLogout}>Logout</button>
+          {isAdmin && (
+            <Link to={"/admin"}>Lista de usários</Link>
+          )}
         </nav>
       )}
     </div>

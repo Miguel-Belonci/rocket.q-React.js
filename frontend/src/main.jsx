@@ -6,6 +6,7 @@ import RoomError from "./pages/RoomError/index.jsx";
 import Login from "./pages/Login/login.jsx";
 import Signup from "./pages/Signup/signup.jsx";
 import UserPage from "./pages/UserPage/userPage.jsx";
+import UsersList from "./pages/UsersList/users-list.jsx"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import { AuthProvider } from "./context/auth.jsx";
@@ -23,9 +24,13 @@ createRoot(document.getElementById("root")).render(
           <Route path="/user" element={<UserPage />} />
         </Route>
 
+        <Route element={<PrivateRoutes role="admin" />}>
+          <Route path="/users" element={<UsersList />}></Route>
+        </Route>
+
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
-  </AuthProvider>
+  </AuthProvider>,
 );
