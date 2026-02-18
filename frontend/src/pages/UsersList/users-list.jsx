@@ -1,18 +1,29 @@
-import { useState } from "react";
-import "./users-list.css";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Apiservice from "../../services/api.js";
+import UsersTable from "../../components/Users/usersTable.jsx";
 function UsersList() {
-  const [users, Setusers] = useState();
-  const [search, setSearch] = useState();
-  const [loading, setLoading] = useState();
+  const [users, Setusers] = useState([]);
 
-  async function getUsers() {
-    const response = await Apiservice.getUsers();
-    Setusers(response.users);
-  }
+  useEffect(() => {
+    async function getUsers() {
+      const response = await Apiservice.getUsers();
+      Setusers(response.users);
+    }
+
+    getUsers();
+  }, []);
+
   return (
-    <div className="admin-page">
-      <div className="admin-container"></div>
+    <div>
+      <header>
+        <Link to={"/"}>
+          <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
+        </Link>
+        <h1>Lista de usuários</h1>
+      </header>
+
+      <UsersTable users={users} />
     </div>
   );
 }

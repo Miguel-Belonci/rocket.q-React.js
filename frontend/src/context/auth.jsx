@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
         loading,
         signIn,
         setUser,
-        isAdmin: user?.role,
+        isAdmin: user?.role === "admin",
       }}
     >
       {children}

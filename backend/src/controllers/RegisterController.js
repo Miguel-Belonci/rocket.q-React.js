@@ -62,7 +62,9 @@ class RegisterController {
 
       const { id } = user;
 
-      return res.status(200).json({ user: { id, email }, token });
+      const { role } = user;
+
+      return res.status(200).json({ user: { id, email, role }, token });
     } catch (error) {
       console.log("Erro ao acessar sua conta", error);
       return res.status(500).json({ error: "Falha ao fazer login", error });

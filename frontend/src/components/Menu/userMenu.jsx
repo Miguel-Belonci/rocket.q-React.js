@@ -48,7 +48,7 @@ function UserMenu() {
           <Link to={"/user"}>Página do usuário</Link>
           <button onClick={handleLogout}>Logout</button>
           {isAdmin && (
-            <Link to={"/admin"}>Lista de usários</Link>
+            <Link to={"/users"}>Lista de usários</Link>
           )}
         </nav>
       )}
