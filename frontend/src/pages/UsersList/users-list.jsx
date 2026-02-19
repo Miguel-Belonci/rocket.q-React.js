@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Apiservice from "../../services/api.js";
 import UsersTable from "../../components/Users/usersTable.jsx";
+import "../../components/Users/usersTable.css"
 function UsersList() {
   const [users, Setusers] = useState([]);
 
@@ -15,7 +16,7 @@ function UsersList() {
   }, []);
 
   return (
-    <div>
+    <div className="table-container">
       <header>
         <Link to={"/"}>
           <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
