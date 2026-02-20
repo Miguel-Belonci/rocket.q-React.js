@@ -33,7 +33,7 @@ class UserContoller {
   async getUsers(req, res) {
     try {
       const users = await Users.findAll({
-        attributes: ["id", "role", "email"],
+        attributes: ["id", "role", "email", "active"],
       });
 
       return res.status(200).json({ users });

@@ -20,6 +20,13 @@ const Users = sequelize.define(
       allowNull: false,
       defaultValue: "user",
     },
+
+    active: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    }
+
   },
   {
     tableName: "users",

@@ -10,7 +10,7 @@ class RegisterController {
       if (!password || !email) {
         return res
           .status(400)
-          .json({ error: "Password and Email are required" });
+          .json({ error: "Email e senha são obrigatórios" });
       }
 
       const isuser = await Users.findOne({
@@ -40,7 +40,7 @@ class RegisterController {
       if (!password || !email) {
         return res
           .status(400)
-          .json({ error: "Password and Email are required" });
+          .json({ error: "Email e senha são obrigatórios" });
       }
 
       const user = await Users.findOne({

@@ -102,6 +102,12 @@ class ApiService {
       method: "GET",
     });
   }
+
+  async handleUser(){
+    return this.request("/user/handle-user", {
+      method: "PATCH"
+    })
+  }
 }
 
 export default new ApiService();

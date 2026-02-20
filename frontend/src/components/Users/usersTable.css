@@ -33,3 +33,8 @@ tbody tr:hover {
   background-color: #f8fafc;
 }
 
+tbody button{
+  height: 3rem;
+  padding: 1rem;
+}
+
