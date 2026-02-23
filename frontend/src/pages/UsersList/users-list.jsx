@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Apiservice from "../../services/api.js";
 import UsersTable from "../../components/Users/usersTable.jsx";
-import "../../components/Users/usersTable.css"
+import "../../components/Users/usersTable.css";
 function UsersList() {
   const [users, Setusers] = useState([]);
 
-  useEffect(() => {
-    async function getUsers() {
-      const response = await Apiservice.getUsers();
-      Setusers(response.users);
-    }
+  async function getUsers() {
+    const response = await Apiservice.getUsers();
+    Setusers(response.users);
+  }
 
+  useEffect(() => {
     getUsers();
   }, []);
 
@@ -24,7 +24,7 @@ function UsersList() {
         <h1>Lista de usuários</h1>
       </header>
 
-      <UsersTable users={users} />
+      <UsersTable users={users} refreshUsers={getUsers} />
     </div>
   );
 }

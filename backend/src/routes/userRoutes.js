@@ -9,4 +9,6 @@ router.post("/new-password", AuthMiddleware, UserContoller.changePassword);
 
 router.get("/users-list", AuthMiddleware, RoleMiddleware, UserContoller.getUsers)
 
+router.patch("/handle-user", AuthMiddleware, RoleMiddleware, UserContoller.handleUser )
+
 export default router;

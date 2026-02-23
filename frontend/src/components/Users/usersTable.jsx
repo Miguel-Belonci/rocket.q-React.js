@@ -2,15 +2,23 @@ import "./usersTable.css";
 import ApiService from "../../services/api.js";
 import { useState } from "react";
 
-function UsersTable({ users }) {
+function UsersTable({ users, refreshUsers }) {
   const [error, setError] = useState("");
+  const [loadingUserId, setLoadingUserId] = useState(null);
 
-  async function AdminAction(UserId, currentActive) {
+  async function AdminAction(userId, currentActive) {
     try {
-      await ApiService.handleUser();
+      setLoadingUserId(userId);
+      await ApiService.handleUser(userId);
     } catch (error) {
-      console.log();
-      setError();
+      console.log(
+        `Falha ao ${currentActive ? "inativar" : "ativar"} o usuário`,
+      );
+      setError(`Erro ao ${currentActive ? "inativar" : "ativar"} o usuário`);
+    } finally {
+      setLoadingUserId(null);
+      setError("");
+      refreshUsers()
     }
   }
 
@@ -30,8 +38,15 @@ function UsersTable({ users }) {
             <td>{user.role}</td>
             <td>{user.id}</td>
             <td>
-              <button onClick={() => AdminAction(user.id, user.action)}>
-                {`${user.active ? "inativar" : "reativar"} usuário`}
+              <button
+                onClick={() => AdminAction(user.id, user.active)}
+                disabled={loadingUserId === user.id}
+              >
+                {loadingUserId === user.id
+                  ? "Processando"
+                  : user.active
+                    ? "inativar usuário"
+                    : " reativar usuário"}
               </button>
             </td>
           </tr>

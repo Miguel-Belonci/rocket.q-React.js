@@ -103,9 +103,10 @@ class ApiService {
     });
   }
 
-  async handleUser(){
+  async handleUser(userId){
     return this.request("/user/handle-user", {
-      method: "PATCH"
+      method: "PATCH",
+      body: {userId}
     })
   }
 }

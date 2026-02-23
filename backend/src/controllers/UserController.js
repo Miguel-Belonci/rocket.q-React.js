@@ -42,6 +42,35 @@ class UserContoller {
       return res.status(500).json({ error: "Erro ao encontrar usuários" });
     }
   }
+
+  async handleUser(req, res) {
+    try {
+      const { userId } = req.body;
+
+      const user = await Users.findOne({ where: { id: userId } });
+
+      if (!user) {
+        return res.status(404).json({ error: "usuário não encontrado!" });
+      }
+
+      user.active = !user.active;
+      await user.save();
+
+      return res
+        .status(200)
+        .json({
+          message: ` usuário ${user.active ? "reativado" : "inativado"} com sucesso!`,
+        });
+    } catch (error) {
+
+      console.log("Falha ao gerenciar o acesso do usuário");
+      return res
+        .status(500)
+        .json({
+          error: `Erro ao gerenciar acesso do usuário usuário`,
+        });
+    }
+  }
 }
 
 export default new UserContoller();
