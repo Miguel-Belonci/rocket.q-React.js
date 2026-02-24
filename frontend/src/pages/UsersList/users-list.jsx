@@ -5,6 +5,7 @@ import UsersTable from "../../components/Users/usersTable.jsx";
 import "../../components/Users/usersTable.css";
 function UsersList() {
   const [users, Setusers] = useState([]);
+  const [error, setError] = useState("")
 
   async function getUsers() {
     const response = await Apiservice.getUsers();
@@ -12,7 +13,13 @@ function UsersList() {
   }
 
   useEffect(() => {
-    getUsers();
+    try {
+      getUsers();
+    } catch (error) {
+      console.log("Erro ao encontar lista de usuários", error)
+      setError(error.message)
+    }
+    
   }, []);
 
   return (
@@ -23,6 +30,19 @@ function UsersList() {
         </Link>
         <h1>Lista de usuários</h1>
       </header>
+
+       {error && (
+              <p
+                style={{
+                  color: "var(--red)",
+                  fontSize: "1.4rem",
+                  marginTop: "2rem",
+                  fontFamily: '"Poppins", sans-serif',
+                }}
+              >
+                {error}
+              </p>
+            )}
 
       <UsersTable users={users} refreshUsers={getUsers} />
     </div>

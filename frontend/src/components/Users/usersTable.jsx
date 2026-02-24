@@ -18,7 +18,7 @@ function UsersTable({ users, refreshUsers }) {
     } finally {
       setLoadingUserId(null);
       setError("");
-      refreshUsers()
+      refreshUsers();
     }
   }
 
@@ -48,6 +48,19 @@ function UsersTable({ users, refreshUsers }) {
                     ? "inativar usuário"
                     : " reativar usuário"}
               </button>
+
+              {error && (
+                <p
+                  style={{
+                    color: "var(--red)",
+                    fontSize: "1.4rem",
+                    marginTop: "2rem",
+                    fontFamily: '"Poppins", sans-serif',
+                  }}
+                >
+                  {error}
+                </p>
+              )}
             </td>
           </tr>
         ))}

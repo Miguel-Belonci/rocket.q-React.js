@@ -48,12 +48,18 @@ class RegisterController {
       });
 
       if (!user) {
-        return res.status(401).json({ error: "Úsuário ou senha inválida" });
+        return res.status(401).json({ error: "Usuário ou senha inválida" });
       }
 
       const isValidPassword = await user.checkPassword(password);
       if (!isValidPassword) {
         return res.status(401).json({ error: "Usuário ou senha inválida" });
+      }
+
+      if (user.role === "user") {
+        if (!user.active) {
+          return res.status(401).json({ error: "Sua conta está inativa!" });
+        }
       }
 
       const token = jwt.sign({ id: user.id, role: user.role }, "secret", {
