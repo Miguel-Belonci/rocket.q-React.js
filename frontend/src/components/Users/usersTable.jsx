@@ -1,4 +1,5 @@
 import "./usersTable.css";
+import { Table, Button } from "@chakra-ui/react";
 import ApiService from "../../services/api.js";
 import { useState } from "react";
 
@@ -23,22 +24,24 @@ function UsersTable({ users, refreshUsers }) {
   }
 
   return (
-    <table>
-      <thead>
-        <th>Email</th>
-        <th>Acesso</th>
-        <th>Id</th>
-        <th>Ação</th>
-      </thead>
-
-      <tbody>
+    <Table.Root size="lg">
+      <Table.Caption />
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeader fontSize={"3xl"}>Email</Table.ColumnHeader>
+          <Table.ColumnHeader fontSize={"3xl"}>Acesso</Table.ColumnHeader>
+          <Table.ColumnHeader fontSize={"3xl"}>Id</Table.ColumnHeader>
+          <Table.ColumnHeader fontSize={"3xl"}>Controle</Table.ColumnHeader>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
         {users.map((user) => (
-          <tr key={user.id}>
-            <td>{user.email}</td>
-            <td>{user.role}</td>
-            <td>{user.id}</td>
-            <td>
-              <button
+          <Table.Row>
+            <Table.Cell fontSize={"2xl"}>{user.email}</Table.Cell>
+            <Table.Cell fontSize={"2xl"}>{user.role}</Table.Cell>
+            <Table.Cell fontSize={"2xl"}>{user.id}</Table.Cell>
+            <Table.Cell>
+              <Button
                 onClick={() => AdminAction(user.id, user.active)}
                 disabled={loadingUserId === user.id}
               >
@@ -47,25 +50,12 @@ function UsersTable({ users, refreshUsers }) {
                   : user.active
                     ? "inativar usuário"
                     : " reativar usuário"}
-              </button>
-
-              {error && (
-                <p
-                  style={{
-                    color: "var(--red)",
-                    fontSize: "1.4rem",
-                    marginTop: "2rem",
-                    fontFamily: '"Poppins", sans-serif',
-                  }}
-                >
-                  {error}
-                </p>
-              )}
-            </td>
-          </tr>
+              </Button>
+            </Table.Cell>
+          </Table.Row>
         ))}
-      </tbody>
-    </table>
+      </Table.Body>
+    </Table.Root>
   );
 }
 
