@@ -1,7 +1,8 @@
-import "./usersTable.css";
 import { Table, Button } from "@chakra-ui/react";
 import ApiService from "../../services/api.js";
 import { useState } from "react";
+import {HeaderCell, TableCell, TableRow} from "../ui/tableElements.jsx";
+
 
 function UsersTable({ users, refreshUsers }) {
   const [error, setError] = useState("");
@@ -25,25 +26,27 @@ function UsersTable({ users, refreshUsers }) {
 
   return (
     <Table.Root size="lg">
-      <Table.Caption />
+      <Table.Caption/>
       <Table.Header>
-        <Table.Row>
-          <Table.ColumnHeader fontSize={"3xl"}>Email</Table.ColumnHeader>
-          <Table.ColumnHeader fontSize={"3xl"}>Acesso</Table.ColumnHeader>
-          <Table.ColumnHeader fontSize={"3xl"}>Id</Table.ColumnHeader>
-          <Table.ColumnHeader fontSize={"3xl"}>Controle</Table.ColumnHeader>
-        </Table.Row>
+        <TableRow>
+          <HeaderCell>Email</HeaderCell>
+          <HeaderCell>Acesso</HeaderCell>
+          <HeaderCell>Id</HeaderCell>
+          <HeaderCell>Controle</HeaderCell>
+        </TableRow>
       </Table.Header>
       <Table.Body>
         {users.map((user) => (
-          <Table.Row>
-            <Table.Cell fontSize={"2xl"}>{user.email}</Table.Cell>
-            <Table.Cell fontSize={"2xl"}>{user.role}</Table.Cell>
-            <Table.Cell fontSize={"2xl"}>{user.id}</Table.Cell>
-            <Table.Cell>
+          <TableRow key={user.id}>
+            <TableCell>{user.email}</TableCell>
+            <TableCell>{user.role}</TableCell>
+            <TableCell>{user.id}</TableCell>
+            <TableCell>
               <Button
                 onClick={() => AdminAction(user.id, user.active)}
                 disabled={loadingUserId === user.id}
+                height={10}
+                p={3}
               >
                 {loadingUserId === user.id
                   ? "Processando"
@@ -51,8 +54,8 @@ function UsersTable({ users, refreshUsers }) {
                     ? "inativar usuário"
                     : " reativar usuário"}
               </Button>
-            </Table.Cell>
-          </Table.Row>
+            </TableCell>
+          </TableRow>
         ))}
       </Table.Body>
     </Table.Root>

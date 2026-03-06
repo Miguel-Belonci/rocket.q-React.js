@@ -120,6 +120,7 @@
 .no-questions img {
   max-width: 100%;
   margin-bottom: 1.2rem;
+  display: inline;
 }
 
 .no-questions p {
