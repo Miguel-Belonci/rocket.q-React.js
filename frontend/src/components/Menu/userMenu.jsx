@@ -6,7 +6,7 @@ import "./menu.css";
 function UserMenu() {
   const [isActive, setActive] = useState(false);
   const dropdownRef = useRef(null);
-  const {setUser, isAdmin} = useContext(AuthContext)
+  const { setUser, isAdmin } = useContext(AuthContext);
 
   useEffect(() => {
     function handleOutsideClick(e) {
@@ -24,19 +24,19 @@ function UserMenu() {
     };
   }, [isActive]);
 
-  function handleLogout(){
-    localStorage.removeItem("@Auth:token")
-    localStorage.removeItem("@Auth:user")
+  function handleLogout() {
+    localStorage.removeItem("@Auth:token");
+    localStorage.removeItem("@Auth:user");
 
-    setUser(null)
-    setActive(false)
+    setUser(null);
+    setActive(false);
   }
 
   return (
     <div className="menu-container">
       <button
         onClick={(e) => {
-          e.stopPropagation()
+          e.stopPropagation();
           setActive(!isActive);
         }}
       >
@@ -46,10 +46,15 @@ function UserMenu() {
       {isActive && (
         <nav className="options-box" ref={dropdownRef}>
           <Link to={"/user"}>Página do usuário</Link>
-          <button onClick={handleLogout}>Logout</button>
-          {isAdmin && (
-            <Link to={"/users"}>Lista de usários</Link>
-          )}
+          <button
+            style={{
+              marginBottom: "0",
+            }}
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+          {isAdmin && <Link to={"/users"}>Lista de usários</Link>}
         </nav>
       )}
     </div>
