@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 5173
 
-CMD ["nmp", "run", "dev"]
+CMD ["npm", "run", "dev"]
