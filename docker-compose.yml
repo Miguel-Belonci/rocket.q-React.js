@@ -1,22 +1,40 @@
-services: 
+services:
+  db:
+    image: postgres:16
+    container_name: my_postgres_db
+    environment:
+      POSTGRES_USER: miguel
+      POSTGRES_PASSWORD: 14080808
+      POSTGRES_DB: appdb
+
+    ports:
+      - 5432:5432
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
   backend:
     build: ./backend
-    ports: 
-    - "3001:3001"
-    volumes: 
-    - ./backend:/app
-    - /app/node_modules
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     env_file:
-    - ./backend/.env
+      - ./backend/.env
+    depends_on:
+      - db
 
   frontend:
     build: ./frontend
     ports:
-    - "5173:5173"
+      - "5173:5173"
     volumes:
-    - ./frontend:/app
-    - /app/node_modules
+      - ./frontend:/app
+      - /app/node_modules
     env_file:
-    - ./frontend/.env
+      - ./frontend/.env
     depends_on:
-    - backend
+      - backend
+
+volumes:
+  postgres_data:
