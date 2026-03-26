@@ -14,6 +14,7 @@ function Login() {
     e.preventDefault();
     if (!password || !email) {
       setError("Email e senha são obrigatórios");
+      return;
     }
     try {
       await signIn(email, password);
@@ -41,12 +42,14 @@ function Login() {
 
           <form onSubmit={handleLogin}>
             <input
+              data-cy="login-email"
               placeholder="Email"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
             <input
+              data-cy="login-password"
               placeholder="Senha"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -68,7 +71,7 @@ function Login() {
 
             <a href="">Esqueceu a senha?</a>
 
-            <button type="submit">Login</button>
+            <button data-cy="login-submit" type="submit">Login</button>
           </form>
 
           <p className="signup">

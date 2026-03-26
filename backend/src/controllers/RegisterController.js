@@ -1,5 +1,6 @@
 import Users from "../models/Users.js";
 import jwt from "jsonwebtoken";
+import { JWT_SECRET } from "../config/auth.js";
 
 class RegisterController {
   async create(req, res) {
@@ -62,7 +63,7 @@ class RegisterController {
         }
       }
 
-      const token = jwt.sign({ id: user.id, role: user.role }, "secret", {
+      const token = jwt.sign({ id: user.id, role: user.role }, JWT_SECRET, {
         expiresIn: "1d",
       });
 

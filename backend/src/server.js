@@ -1,37 +1,13 @@
-import express from "express";
-import cors from "cors";
 import dotenv from "dotenv";
 import { sequelize } from "./config/database.js";
-import roomRoutes from "./routes/roomRoutes.js";
-import questionRoutes from "./routes/questionRoutes.js";
-import registerRoutes from "./routes/registerRoutes.js";
-import userRoutes from "./routes/userRoutes.js";
+import app from "./app.js";
 
 dotenv.config();
 
-const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-  }),
-);
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Routes
-app.use("/api/rooms", roomRoutes);
-app.use("/api/questions", questionRoutes);
-app.use("/api/register", registerRoutes);
-app.use("/api/user", userRoutes);
-
 // Initialize database and start server
-const startServer = async () => {
+export const startServer = async () => {
   try {
     await sequelize.authenticate();
     console.log("Database connection established successfully.");
