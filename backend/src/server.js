@@ -6,13 +6,11 @@ dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 
-// Initialize database and start server
 export const startServer = async () => {
   try {
     await sequelize.authenticate();
     console.log("Database connection established successfully.");
 
-    // Sync database (creates tables if they don't exist)
     await sequelize.sync({ alter: true });
     console.log("Database synchronized successfully.");
 

@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../src/config/auth.js";
 
 function AuthMiddleware(req, res, next) {
   const { authorization } = req.headers;
@@ -11,7 +10,7 @@ function AuthMiddleware(req, res, next) {
   const [, token] = authorization.split(" ");
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const { id, role } = decoded;
 
     req.userId = id;

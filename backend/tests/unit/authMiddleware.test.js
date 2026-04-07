@@ -1,10 +1,13 @@
 import { jest } from "@jest/globals";
 import jwt from "jsonwebtoken";
-import AuthMiddleware from "../../Middlewares/auth.js";
+import AuthMiddleware from "../../src/Middlewares/auth.js";
 
 describe("AuthMiddleware", () => {
   test("adds user data to request and calls next when token is valid", () => {
     const token = jwt.sign({ id: 7, role: "admin" }, process.env.JWT_SECRET);
+
+    console.log(process.env.JWT_SECRET)
+
     const req = {
       headers: {
         authorization: `Bearer ${token}`,
