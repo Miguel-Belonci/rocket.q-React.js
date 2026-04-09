@@ -26,6 +26,22 @@ describe("Register routes", () => {
     expect(response.body.users.email).toBe("new-user@example.com");
   });
 
+  test("should return 409 if user already exists", async () => {
+    await createUser({
+      email:"teste432@gmail.com",
+    })
+
+    const response = await request(app).post("/api/register/create").send({
+      email: "teste432@gmail.com",
+      password: "12345678"
+    })
+
+    expect(response.status).toBe(409);
+    expect(response.body).toEqual({
+      error: "Esse usuário já existe"
+    })
+  })
+
   test("authenticates an active user and returns token", async () => {
     await createUser({
       email: "login@example.com",
@@ -44,7 +60,22 @@ describe("Register routes", () => {
       role: "user",
     });
   });
+  test("block login because incorrect password", async () => {
+    await createUser({
+      password:"12345678"
+    })
 
+    const response = await request(app).post("/api/register/auth").send({
+      email:"student@example.com",
+      password:"88888888",
+    })
+
+    expect(response.status).toBe(401);
+    expect(response.body).toEqual({
+      error: "Usuário ou senha inválida"
+    })
+
+  })
   test("blocks login for inactive user", async () => {
     await createUser({
       email: "inactive@example.com",
