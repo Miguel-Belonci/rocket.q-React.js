@@ -5,6 +5,8 @@ dotenv.config();
 
 const dialect = process.env.DB_DIALECT || "postgres";
 
+console.log("CWD:", process.cwd());
+
 const baseConfig = {
   dialect,
   logging: false,

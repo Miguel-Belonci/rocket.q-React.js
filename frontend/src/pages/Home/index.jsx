@@ -27,7 +27,7 @@ function Home() {
         <Link to={"/"}>
           <img src="/images/logo.svg" alt="Rocket.q logo" id="logo" />
         </Link>
-        <UserMenu></UserMenu>
+        <UserMenu/>
       </header>
       <div id="bg">
         <div className="ball top"></div>

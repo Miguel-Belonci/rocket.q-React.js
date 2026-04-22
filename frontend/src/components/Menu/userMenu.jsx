@@ -39,6 +39,7 @@ function UserMenu() {
           e.stopPropagation();
           setActive(!isActive);
         }}
+        data-cy="menu-button"
       >
         <img src="/images/userMenu.svg" alt="user-menu" />
       </button>
@@ -51,6 +52,7 @@ function UserMenu() {
               marginBottom: "0",
             }}
             onClick={handleLogout}
+            data-cy="logout-button"
           >
             Logout
           </button>
