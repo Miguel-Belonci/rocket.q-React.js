@@ -65,7 +65,8 @@ function CreatePass() {
               id="room-pass"
               placeholder="Insira uma senha"
               onChange={(e) => setInputCreatePass(e.target.value)}
-              disabled={loading}            
+              disabled={loading}  
+              data-cy="create-pass"          
             />
 
             {error && (
@@ -81,7 +82,7 @@ function CreatePass() {
               </p>
             )}
 
-            <button type="submit" disabled={loading}>
+            <button type="submit" disabled={loading} data-cy="create-room-button">
               <img src="/images/users-white.svg" alt="Entar na Sala" />
               {loading ? "Criando..." : "Criar sala"}
             </button>

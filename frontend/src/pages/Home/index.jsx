@@ -76,7 +76,7 @@ function Home() {
           </section>
           <section>
             <h2>Crie sua própria sala, de forma fácil</h2>
-            <Link to="/create-pass" className="button outlined">
+            <Link to="/create-pass" className="button outlined" data-cy="create-link">
               <img src="/images/users.svg" alt="Criar Sala" />
               Criar Sala
             </Link>
