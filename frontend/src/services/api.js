@@ -45,6 +45,14 @@ class ApiService {
     });
   }
 
+  async getRooms(userId = "") {
+    const query = userId ? `?userId=${encodeURIComponent(userId)}` : "";
+
+    return this.request(`/rooms/admin/list${query}`, {
+      method: "GET",
+    });
+  }
+
   async deleteRoom(pass, code) {
     return this.request("/rooms/delete", {
       method: "DELETE",
@@ -90,6 +98,12 @@ class ApiService {
   }
 
   // user related methods
+  async getProfile() {
+    return this.request("/user/me", {
+      method: "GET",
+    });
+  }
+
   async changePassword(password, newPassword) {
     return this.request("/user/new-password", {
       method: "POST",

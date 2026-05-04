@@ -1,8 +1,8 @@
 import "../Login/login.css";
 import { useContext, useState } from "react";
 import Apiservice from "../../services/api";
-import { Navigate, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/auth";
+import { Navigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 
 function Signup() {
   const [password, setPassword] = useState("");

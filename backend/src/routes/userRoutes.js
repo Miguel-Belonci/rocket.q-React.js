@@ -5,6 +5,8 @@ import UserContoller from "../controllers/UserController.js";
 
 const router = express.Router();
 
+router.get("/me", AuthMiddleware, UserContoller.profile);
+
 router.post("/new-password", AuthMiddleware, UserContoller.changePassword);
 
 router.get("/users-list", AuthMiddleware, RoleMiddleware, UserContoller.getUsers)

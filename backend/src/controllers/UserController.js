@@ -1,6 +1,23 @@
 import Users from "../models/Users.js";
 
 class UserContoller {
+  async profile(req, res) {
+    try {
+      const user = await Users.findByPk(req.userId, {
+        attributes: ["id", "role", "email", "active"],
+      });
+
+      if (!user) {
+        return res.status(404).json({ error: "usuario nao encontrado!" });
+      }
+
+      return res.status(200).json({ user });
+    } catch (error) {
+      console.log("Falha ao retornar usuario autenticado", error);
+      return res.status(500).json({ error: "Erro ao retornar usuario" });
+    }
+  }
+
   async changePassword(req, res) {
     try {
       const { password, newPassword } = req.body;

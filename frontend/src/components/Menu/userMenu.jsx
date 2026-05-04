@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useContext } from "react";
-import { AuthContext } from "../../context/auth";
+import { AuthContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
 import "./menu.css";
 
@@ -46,17 +46,20 @@ function UserMenu() {
 
       {isActive && (
         <nav className="options-box" ref={dropdownRef}>
-          <Link to={"/user"}>Página do usuário</Link>
-          <button
-            style={{
-              marginBottom: "0",
-            }}
-            onClick={handleLogout}
-            data-cy="logout-button"
-          >
+          <Link to={"/user"}>Pagina do usuario</Link>
+          {isAdmin && (
+            <Link to={"/users"} data-cy="users-list-link">
+              Lista de usuarios
+            </Link>
+          )}
+          {isAdmin && (
+            <Link to={"/admin"} data-cy="admin-rooms-link">
+              Painel de salas
+            </Link>
+          )}
+          <button onClick={handleLogout} data-cy="logout-button">
             Logout
           </button>
-          {isAdmin && <Link to={"/users"}>Lista de usários</Link>}
         </nav>
       )}
     </div>

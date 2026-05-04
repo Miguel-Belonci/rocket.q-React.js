@@ -1,22 +1,34 @@
-import { createContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ApiService from "../services/api";
-
-export const AuthContext = createContext();
+import { AuthContext } from "./authContext";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const LoadingStorageData = () => {
-      const storageuser = localStorage.getItem("@Auth:user");
+    const LoadingStorageData = async () => {
       const storageToken = localStorage.getItem("@Auth:token");
 
-      if (storageToken) {
-        setUser(JSON.parse(storageuser));
+      if (!storageToken) {
+        setLoading(false);
+        return;
       }
-      setLoading(false);
+
+      try {
+        const response = await ApiService.getProfile();
+        setUser(response.user);
+        localStorage.setItem("@Auth:user", JSON.stringify(response.user));
+      } catch (error) {
+        console.log("Erro ao carregar usuario autenticado", error);
+        localStorage.removeItem("@Auth:token");
+        localStorage.removeItem("@Auth:user");
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
     };
+
     LoadingStorageData();
   }, []);
 
@@ -40,7 +52,7 @@ export const AuthProvider = ({ children }) => {
         loading,
         signIn,
         setUser,
-        isAdmin: user?.role === "admin",
+        isAdmin: String(user?.role || "").trim().toLowerCase() === "admin",
       }}
     >
       {children}

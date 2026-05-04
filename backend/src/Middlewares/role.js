@@ -1,5 +1,5 @@
 async function RoleMiddleware(req, res, next) {
-  const role = req.userRole;
+  const role = String(req.userRole || "").trim().toLowerCase();
 
   if (role !== "admin") {
     return res.status(403).json({ error: "Não autorizado!" });

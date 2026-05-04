@@ -1,4 +1,4 @@
-import { Room, Question } from "../models/index.js";
+import { Room, Question, Users } from "../models/index.js";
 import GenerateCodeUnique from "../config/utils/generateCode.js";
 
 class RoomController {
@@ -13,7 +13,7 @@ class RoomController {
 
       const code = await GenerateCodeUnique(Room);
 
-      const room = await Room.create({ password, code });
+      const room = await Room.create({ password, code, userId: req.userId });
 
       return res.status(201).json({
         id: room.id,
@@ -23,6 +23,36 @@ class RoomController {
     } catch (error) {
       console.error("Error creating room:", error);
       return res.status(500).json({ error: "Failed to create room" });
+    }
+  }
+
+  async list(req, res) {
+    try {
+      const { userId } = req.query;
+      const where = userId ? { userId } : {};
+
+      const rooms = await Room.findAll({
+        where,
+        attributes: ["id", "code", "userId", "createdAt", "updatedAt"],
+        include: [
+          {
+            model: Users,
+            as: "user",
+            attributes: ["id", "email"],
+          },
+          {
+            model: Question,
+            as: "questions",
+            attributes: ["id"],
+          },
+        ],
+        order: [["createdAt", "DESC"]],
+      });
+
+      return res.status(200).json({ rooms });
+    } catch (error) {
+      console.error("Error listing rooms:", error);
+      return res.status(500).json({ error: "Erro ao listar salas" });
     }
   }
 

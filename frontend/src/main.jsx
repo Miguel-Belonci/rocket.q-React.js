@@ -7,6 +7,7 @@ import Login from "./pages/Login/login.jsx";
 import Signup from "./pages/Signup/signup.jsx";
 import UserPage from "./pages/UserPage/userPage.jsx";
 import UsersList from "./pages/UsersList/users-list.jsx";
+import AdminPage from "./pages/AdminPage/index.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import { AuthProvider } from "./context/auth.jsx";
@@ -28,6 +29,7 @@ createRoot(document.getElementById("root")).render(
 
           <Route element={<PrivateRoutes role="admin" />}>
             <Route path="/users" element={<UsersList />}></Route>
+            <Route path="/admin" element={<AdminPage />} />
           </Route>
 
           <Route path="/login" element={<Login />} />

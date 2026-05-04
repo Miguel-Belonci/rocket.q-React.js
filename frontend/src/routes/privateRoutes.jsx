@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "../context/auth";
+import { AuthContext } from "../context/authContext";
 import { Navigate, Outlet } from "react-router-dom";
 
 const PrivateRoutes = ({ role }) => {
@@ -9,11 +9,18 @@ const PrivateRoutes = ({ role }) => {
     return null;
   }
 
-  if (role && user.role !== role) {
+  if (!signed) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const userRole = String(user?.role || "").trim().toLowerCase();
+  const requiredRole = String(role || "").trim().toLowerCase();
+
+  if (requiredRole && userRole !== requiredRole) {
     return <Navigate to="/" replace />;
   }
 
-  return signed ? <Outlet /> : <Navigate to="/login" replace />;
+  return <Outlet />;
 };
 
 export default PrivateRoutes;
