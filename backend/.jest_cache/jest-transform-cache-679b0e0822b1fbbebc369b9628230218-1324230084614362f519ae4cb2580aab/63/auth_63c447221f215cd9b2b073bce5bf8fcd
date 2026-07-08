@@ -1,0 +1,89 @@
+59bd26338160f63d4724d3787c1849a9
+/* istanbul ignore next */
+function cov_25v66obcqr() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\config\\auth.js";
+  var hash = "33eded8472e1e377816b9569ab6c8cb56f6f3e38";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\config\\auth.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 26
+        },
+        end: {
+          line: 1,
+          column: 60
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 1,
+            column: 26
+          },
+          end: {
+            line: 1,
+            column: 60
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 1,
+            column: 26
+          },
+          end: {
+            line: 1,
+            column: 48
+          }
+        }, {
+          start: {
+            line: 1,
+            column: 52
+          },
+          end: {
+            line: 1,
+            column: 60
+          }
+        }],
+        line: 1
+      }
+    },
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {
+      "0": [0, 0]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "33eded8472e1e377816b9569ab6c8cb56f6f3e38"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_25v66obcqr = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_25v66obcqr();
+export const JWT_SECRET =
+/* istanbul ignore next */
+(cov_25v66obcqr().s[0]++, 
+/* istanbul ignore next */
+(cov_25v66obcqr().b[0][0]++, process.env.JWT_SECRET) ||
+/* istanbul ignore next */
+(cov_25v66obcqr().b[0][1]++, "secret"));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMjV2NjZvYmNxciIsImFjdHVhbENvdmVyYWdlIiwiSldUX1NFQ1JFVCIsInMiLCJiIiwicHJvY2VzcyIsImVudiJdLCJzb3VyY2VzIjpbImF1dGguanMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IEpXVF9TRUNSRVQgPSBwcm9jZXNzLmVudi5KV1RfU0VDUkVUIHx8IFwic2VjcmV0XCI7XHJcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZVk7SUFBQUEsY0FBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsY0FBQTtBQWZaLE9BQU8sTUFBTUUsVUFBVTtBQUFBO0FBQUEsQ0FBQUYsY0FBQSxHQUFBRyxDQUFBO0FBQUc7QUFBQSxDQUFBSCxjQUFBLEdBQUFJLENBQUEsVUFBQUMsT0FBTyxDQUFDQyxHQUFHLENBQUNKLFVBQVU7QUFBQTtBQUFBLENBQUFGLGNBQUEsR0FBQUksQ0FBQSxVQUFJLFFBQVEiLCJpZ25vcmVMaXN0IjpbXX0=

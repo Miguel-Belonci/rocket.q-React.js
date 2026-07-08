@@ -1,0 +1,76 @@
+d3923a0ac2fa1418021d59979c2f6704
+/* istanbul ignore next */
+function cov_od182ikd1() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\models\\Question.js";
+  var hash = "551d512d2249c8385a63f0591f8f55cea66dd584";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\models\\Question.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 5,
+          column: 17
+        },
+        end: {
+          line: 32,
+          column: 1
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "551d512d2249c8385a63f0591f8f55cea66dd584"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_od182ikd1 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_od182ikd1();
+import { DataTypes } from "sequelize";
+import { sequelize } from "../config/database.js";
+import Room from "./Room.js";
+const Question =
+/* istanbul ignore next */
+(cov_od182ikd1().s[0]++, sequelize.define("Question", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  title: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
+  roomId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Room,
+      key: "id"
+    }
+  },
+  isAnswered: {
+    type: DataTypes.BOOLEAN
+  }
+}, {
+  tableName: "questions"
+}));
+export default Question;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3Zfb2QxODJpa2QxIiwiYWN0dWFsQ292ZXJhZ2UiLCJEYXRhVHlwZXMiLCJzZXF1ZWxpemUiLCJSb29tIiwiUXVlc3Rpb24iLCJzIiwiZGVmaW5lIiwiaWQiLCJ0eXBlIiwiSU5URUdFUiIsInByaW1hcnlLZXkiLCJhdXRvSW5jcmVtZW50IiwidGl0bGUiLCJURVhUIiwiYWxsb3dOdWxsIiwicm9vbUlkIiwicmVmZXJlbmNlcyIsIm1vZGVsIiwia2V5IiwiaXNBbnN3ZXJlZCIsIkJPT0xFQU4iLCJ0YWJsZU5hbWUiXSwic291cmNlcyI6WyJRdWVzdGlvbi5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBEYXRhVHlwZXMgfSBmcm9tIFwic2VxdWVsaXplXCI7XHJcbmltcG9ydCB7IHNlcXVlbGl6ZSB9IGZyb20gXCIuLi9jb25maWcvZGF0YWJhc2UuanNcIjtcclxuaW1wb3J0IFJvb20gZnJvbSBcIi4vUm9vbS5qc1wiO1xyXG5cclxuY29uc3QgUXVlc3Rpb24gPSBzZXF1ZWxpemUuZGVmaW5lKFxyXG4gIFwiUXVlc3Rpb25cIixcclxuICB7XHJcbiAgICBpZDoge1xyXG4gICAgICB0eXBlOiBEYXRhVHlwZXMuSU5URUdFUixcclxuICAgICAgcHJpbWFyeUtleTogdHJ1ZSxcclxuICAgICAgYXV0b0luY3JlbWVudDogdHJ1ZSxcclxuICAgIH0sXHJcbiAgICB0aXRsZToge1xyXG4gICAgICB0eXBlOiBEYXRhVHlwZXMuVEVYVCxcclxuICAgICAgYWxsb3dOdWxsOiBmYWxzZSxcclxuICAgIH0sXHJcbiAgICByb29tSWQ6IHtcclxuICAgICAgdHlwZTogRGF0YVR5cGVzLklOVEVHRVIsXHJcbiAgICAgIGFsbG93TnVsbDogZmFsc2UsXHJcbiAgICAgIHJlZmVyZW5jZXM6IHtcclxuICAgICAgICBtb2RlbDogUm9vbSxcclxuICAgICAgICBrZXk6IFwiaWRcIixcclxuICAgICAgfSxcclxuICAgIH0sXHJcbiAgICBpc0Fuc3dlcmVkOiB7XHJcbiAgICAgIHR5cGU6IERhdGFUeXBlcy5CT09MRUFOXHJcbiAgICB9XHJcbiAgfSxcclxuICB7XHJcbiAgICB0YWJsZU5hbWU6IFwicXVlc3Rpb25zXCIsXHJcbiAgfVxyXG4pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgUXVlc3Rpb247XHJcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZVk7SUFBQUEsYUFBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsYUFBQTtBQWZaLFNBQVNFLFNBQVMsUUFBUSxXQUFXO0FBQ3JDLFNBQVNDLFNBQVMsUUFBUSx1QkFBdUI7QUFDakQsT0FBT0MsSUFBSSxNQUFNLFdBQVc7QUFFNUIsTUFBTUMsUUFBUTtBQUFBO0FBQUEsQ0FBQUwsYUFBQSxHQUFBTSxDQUFBLE9BQUdILFNBQVMsQ0FBQ0ksTUFBTSxDQUMvQixVQUFVLEVBQ1Y7RUFDRUMsRUFBRSxFQUFFO0lBQ0ZDLElBQUksRUFBRVAsU0FBUyxDQUFDUSxPQUFPO0lBQ3ZCQyxVQUFVLEVBQUUsSUFBSTtJQUNoQkMsYUFBYSxFQUFFO0VBQ2pCLENBQUM7RUFDREMsS0FBSyxFQUFFO0lBQ0xKLElBQUksRUFBRVAsU0FBUyxDQUFDWSxJQUFJO0lBQ3BCQyxTQUFTLEVBQUU7RUFDYixDQUFDO0VBQ0RDLE1BQU0sRUFBRTtJQUNOUCxJQUFJLEVBQUVQLFNBQVMsQ0FBQ1EsT0FBTztJQUN2QkssU0FBUyxFQUFFLEtBQUs7SUFDaEJFLFVBQVUsRUFBRTtNQUNWQyxLQUFLLEVBQUVkLElBQUk7TUFDWGUsR0FBRyxFQUFFO0lBQ1A7RUFDRixDQUFDO0VBQ0RDLFVBQVUsRUFBRTtJQUNWWCxJQUFJLEVBQUVQLFNBQVMsQ0FBQ21CO0VBQ2xCO0FBQ0YsQ0FBQyxFQUNEO0VBQ0VDLFNBQVMsRUFBRTtBQUNiLENBQ0YsQ0FBQztBQUVELGVBQWVqQixRQUFRIiwiaWdub3JlTGlzdCI6W119

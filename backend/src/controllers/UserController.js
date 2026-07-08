@@ -76,7 +76,7 @@ class UserContoller {
       return res
         .status(200)
         .json({
-          message: ` usuário ${user.active ? "reativado" : "inativado"} com sucesso!`,
+          message: `usuário ${user.active ? "reativado" : "inativado"} com sucesso!`,
         });
     } catch (error) {
 

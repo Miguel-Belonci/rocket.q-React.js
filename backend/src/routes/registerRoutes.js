@@ -6,4 +6,6 @@ router.post("/create",  RegisterController.create);
 
 router.post("/auth",  RegisterController.auth);
 
+router.post("/auth-google",  RegisterController.authWithGoogle); 
+
 export default router;

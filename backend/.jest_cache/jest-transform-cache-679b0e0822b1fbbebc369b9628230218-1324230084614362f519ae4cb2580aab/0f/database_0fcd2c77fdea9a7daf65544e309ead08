@@ -1,0 +1,255 @@
+a43dc1d517cdf5e31f4caf9e0fdf1313
+/* istanbul ignore next */
+function cov_18mkkj49qk() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\config\\database.js";
+  var hash = "2fa19e178bb6eec67b735dc825203f3bbff50edf";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\config\\database.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 4,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 16
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 16
+        },
+        end: {
+          line: 6,
+          column: 52
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 0
+        },
+        end: {
+          line: 8,
+          column: 35
+        }
+      },
+      "3": {
+        start: {
+          line: 10,
+          column: 19
+        },
+        end: {
+          line: 17,
+          column: 1
+        }
+      },
+      "4": {
+        start: {
+          line: 20,
+          column: 2
+        },
+        end: {
+          line: 32,
+          column: 7
+        }
+      },
+      "5": {
+        start: {
+          line: 34,
+          column: 25
+        },
+        end: {
+          line: 34,
+          column: 55
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 6,
+            column: 16
+          },
+          end: {
+            line: 6,
+            column: 52
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 6,
+            column: 16
+          },
+          end: {
+            line: 6,
+            column: 38
+          }
+        }, {
+          start: {
+            line: 6,
+            column: 42
+          },
+          end: {
+            line: 6,
+            column: 52
+          }
+        }],
+        line: 6
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 20,
+            column: 2
+          },
+          end: {
+            line: 32,
+            column: 7
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 21,
+            column: 6
+          },
+          end: {
+            line: 24,
+            column: 7
+          }
+        }, {
+          start: {
+            line: 25,
+            column: 6
+          },
+          end: {
+            line: 32,
+            column: 7
+          }
+        }],
+        line: 20
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 23,
+            column: 17
+          },
+          end: {
+            line: 23,
+            column: 53
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 23,
+            column: 17
+          },
+          end: {
+            line: 23,
+            column: 39
+          }
+        }, {
+          start: {
+            line: 23,
+            column: 43
+          },
+          end: {
+            line: 23,
+            column: 53
+          }
+        }],
+        line: 23
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    f: {},
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "2fa19e178bb6eec67b735dc825203f3bbff50edf"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_18mkkj49qk = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_18mkkj49qk();
+import dotenv from "dotenv";
+import { Sequelize } from "sequelize";
+/* istanbul ignore next */
+cov_18mkkj49qk().s[0]++;
+dotenv.config();
+const dialect =
+/* istanbul ignore next */
+(cov_18mkkj49qk().s[1]++, 
+/* istanbul ignore next */
+(cov_18mkkj49qk().b[0][0]++, process.env.DB_DIALECT) ||
+/* istanbul ignore next */
+(cov_18mkkj49qk().b[0][1]++, "postgres"));
+/* istanbul ignore next */
+cov_18mkkj49qk().s[2]++;
+console.log("CWD:", process.cwd());
+const baseConfig =
+/* istanbul ignore next */
+(cov_18mkkj49qk().s[3]++, {
+  dialect,
+  logging: false,
+  define: {
+    timestamps: true,
+    underscored: false
+  }
+});
+const sequelizeConfig =
+/* istanbul ignore next */
+(cov_18mkkj49qk().s[4]++, dialect === "sqlite" ?
+/* istanbul ignore next */
+(cov_18mkkj49qk().b[1][0]++, {
+  ...baseConfig,
+  storage: 
+  /* istanbul ignore next */
+  (cov_18mkkj49qk().b[2][0]++, process.env.DB_STORAGE) ||
+  /* istanbul ignore next */
+  (cov_18mkkj49qk().b[2][1]++, ":memory:")
+}) :
+/* istanbul ignore next */
+(cov_18mkkj49qk().b[1][1]++, {
+  ...baseConfig,
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  database: process.env.DB_NAME,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD
+}));
+export const sequelize =
+/* istanbul ignore next */
+(cov_18mkkj49qk().s[5]++, new Sequelize(sequelizeConfig));
+export default sequelize;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMThta2tqNDlxayIsImFjdHVhbENvdmVyYWdlIiwiZG90ZW52IiwiU2VxdWVsaXplIiwicyIsImNvbmZpZyIsImRpYWxlY3QiLCJiIiwicHJvY2VzcyIsImVudiIsIkRCX0RJQUxFQ1QiLCJjb25zb2xlIiwibG9nIiwiY3dkIiwiYmFzZUNvbmZpZyIsImxvZ2dpbmciLCJkZWZpbmUiLCJ0aW1lc3RhbXBzIiwidW5kZXJzY29yZWQiLCJzZXF1ZWxpemVDb25maWciLCJzdG9yYWdlIiwiREJfU1RPUkFHRSIsImhvc3QiLCJEQl9IT1NUIiwicG9ydCIsIk51bWJlciIsIkRCX1BPUlQiLCJkYXRhYmFzZSIsIkRCX05BTUUiLCJ1c2VybmFtZSIsIkRCX1VTRVJOQU1FIiwicGFzc3dvcmQiLCJEQl9QQVNTV09SRCIsInNlcXVlbGl6ZSJdLCJzb3VyY2VzIjpbImRhdGFiYXNlLmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBkb3RlbnYgZnJvbSBcImRvdGVudlwiO1xyXG5pbXBvcnQgeyBTZXF1ZWxpemUgfSBmcm9tIFwic2VxdWVsaXplXCI7XHJcblxyXG5kb3RlbnYuY29uZmlnKCk7XHJcblxyXG5jb25zdCBkaWFsZWN0ID0gcHJvY2Vzcy5lbnYuREJfRElBTEVDVCB8fCBcInBvc3RncmVzXCI7XHJcblxyXG5jb25zb2xlLmxvZyhcIkNXRDpcIiwgcHJvY2Vzcy5jd2QoKSk7XHJcblxyXG5jb25zdCBiYXNlQ29uZmlnID0ge1xyXG4gIGRpYWxlY3QsXHJcbiAgbG9nZ2luZzogZmFsc2UsXHJcbiAgZGVmaW5lOiB7XHJcbiAgICB0aW1lc3RhbXBzOiB0cnVlLFxyXG4gICAgdW5kZXJzY29yZWQ6IGZhbHNlLFxyXG4gIH0sXHJcbn07XHJcblxyXG5jb25zdCBzZXF1ZWxpemVDb25maWcgPVxyXG4gIGRpYWxlY3QgPT09IFwic3FsaXRlXCJcclxuICAgID8ge1xyXG4gICAgICAgIC4uLmJhc2VDb25maWcsXHJcbiAgICAgICAgc3RvcmFnZTogcHJvY2Vzcy5lbnYuREJfU1RPUkFHRSB8fCBcIjptZW1vcnk6XCIsXHJcbiAgICAgIH1cclxuICAgIDoge1xyXG4gICAgICAgIC4uLmJhc2VDb25maWcsXHJcbiAgICAgICAgaG9zdDogcHJvY2Vzcy5lbnYuREJfSE9TVCxcclxuICAgICAgICBwb3J0OiBOdW1iZXIocHJvY2Vzcy5lbnYuREJfUE9SVCksXHJcbiAgICAgICAgZGF0YWJhc2U6IHByb2Nlc3MuZW52LkRCX05BTUUsXHJcbiAgICAgICAgdXNlcm5hbWU6IHByb2Nlc3MuZW52LkRCX1VTRVJOQU1FLFxyXG4gICAgICAgIHBhc3N3b3JkOiBwcm9jZXNzLmVudi5EQl9QQVNTV09SRCxcclxuICAgICAgfTtcclxuXHJcbmV4cG9ydCBjb25zdCBzZXF1ZWxpemUgPSBuZXcgU2VxdWVsaXplKHNlcXVlbGl6ZUNvbmZpZyk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBzZXF1ZWxpemU7XHJcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZVk7SUFBQUEsY0FBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsY0FBQTtBQWZaLE9BQU9FLE1BQU0sTUFBTSxRQUFRO0FBQzNCLFNBQVNDLFNBQVMsUUFBUSxXQUFXO0FBQUM7QUFBQUgsY0FBQSxHQUFBSSxDQUFBO0FBRXRDRixNQUFNLENBQUNHLE1BQU0sQ0FBQyxDQUFDO0FBRWYsTUFBTUMsT0FBTztBQUFBO0FBQUEsQ0FBQU4sY0FBQSxHQUFBSSxDQUFBO0FBQUc7QUFBQSxDQUFBSixjQUFBLEdBQUFPLENBQUEsVUFBQUMsT0FBTyxDQUFDQyxHQUFHLENBQUNDLFVBQVU7QUFBQTtBQUFBLENBQUFWLGNBQUEsR0FBQU8sQ0FBQSxVQUFJLFVBQVU7QUFBQztBQUFBUCxjQUFBLEdBQUFJLENBQUE7QUFFckRPLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDLE1BQU0sRUFBRUosT0FBTyxDQUFDSyxHQUFHLENBQUMsQ0FBQyxDQUFDO0FBRWxDLE1BQU1DLFVBQVU7QUFBQTtBQUFBLENBQUFkLGNBQUEsR0FBQUksQ0FBQSxPQUFHO0VBQ2pCRSxPQUFPO0VBQ1BTLE9BQU8sRUFBRSxLQUFLO0VBQ2RDLE1BQU0sRUFBRTtJQUNOQyxVQUFVLEVBQUUsSUFBSTtJQUNoQkMsV0FBVyxFQUFFO0VBQ2Y7QUFDRixDQUFDO0FBRUQsTUFBTUMsZUFBZTtBQUFBO0FBQUEsQ0FBQW5CLGNBQUEsR0FBQUksQ0FBQSxPQUNuQkUsT0FBTyxLQUFLLFFBQVE7QUFBQTtBQUFBLENBQUFOLGNBQUEsR0FBQU8sQ0FBQSxVQUNoQjtFQUNFLEdBQUdPLFVBQVU7RUFDYk0sT0FBTztFQUFFO0VBQUEsQ0FBQXBCLGNBQUEsR0FBQU8sQ0FBQSxVQUFBQyxPQUFPLENBQUNDLEdBQUcsQ0FBQ1ksVUFBVTtFQUFBO0VBQUEsQ0FBQXJCLGNBQUEsR0FBQU8sQ0FBQSxVQUFJLFVBQVU7QUFDL0MsQ0FBQztBQUFBO0FBQUEsQ0FBQVAsY0FBQSxHQUFBTyxDQUFBLFVBQ0Q7RUFDRSxHQUFHTyxVQUFVO0VBQ2JRLElBQUksRUFBRWQsT0FBTyxDQUFDQyxHQUFHLENBQUNjLE9BQU87RUFDekJDLElBQUksRUFBRUMsTUFBTSxDQUFDakIsT0FBTyxDQUFDQyxHQUFHLENBQUNpQixPQUFPLENBQUM7RUFDakNDLFFBQVEsRUFBRW5CLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDbUIsT0FBTztFQUM3QkMsUUFBUSxFQUFFckIsT0FBTyxDQUFDQyxHQUFHLENBQUNxQixXQUFXO0VBQ2pDQyxRQUFRLEVBQUV2QixPQUFPLENBQUNDLEdBQUcsQ0FBQ3VCO0FBQ3hCLENBQUM7QUFFUCxPQUFPLE1BQU1DLFNBQVM7QUFBQTtBQUFBLENBQUFqQyxjQUFBLEdBQUFJLENBQUEsT0FBRyxJQUFJRCxTQUFTLENBQUNnQixlQUFlLENBQUM7QUFFdkQsZUFBZWMsU0FBUyIsImlnbm9yZUxpc3QiOltdfQ==

@@ -1,0 +1,203 @@
+20ed15e0eb7aec31c2ac739adbaa5eac
+/* istanbul ignore next */
+function cov_2dwen6te34() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\Middlewares\\role.js";
+  var hash = "2e43e8f5d90acff9fffd8799a9c4aad60b1742de";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\Middlewares\\role.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 15
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 2
+        },
+        end: {
+          line: 8,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 4
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 7,
+          column: 4
+        },
+        end: {
+          line: 7,
+          column: 11
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "RoleMiddleware",
+        decl: {
+          start: {
+            line: 1,
+            column: 15
+          },
+          end: {
+            line: 1,
+            column: 29
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 46
+          },
+          end: {
+            line: 9,
+            column: 1
+          }
+        },
+        line: 1
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 2,
+            column: 40
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 2,
+            column: 34
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 38
+          },
+          end: {
+            line: 2,
+            column: 40
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 4,
+            column: 2
+          },
+          end: {
+            line: 8,
+            column: 3
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 4,
+            column: 2
+          },
+          end: {
+            line: 8,
+            column: 3
+          }
+        }, {
+          start: {
+            line: 6,
+            column: 9
+          },
+          end: {
+            line: 8,
+            column: 3
+          }
+        }],
+        line: 4
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "2e43e8f5d90acff9fffd8799a9c4aad60b1742de"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2dwen6te34 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2dwen6te34();
+async function RoleMiddleware(req, res, next) {
+  /* istanbul ignore next */
+  cov_2dwen6te34().f[0]++;
+  const role =
+  /* istanbul ignore next */
+  (cov_2dwen6te34().s[0]++, String(
+  /* istanbul ignore next */
+  (cov_2dwen6te34().b[0][0]++, req.userRole) ||
+  /* istanbul ignore next */
+  (cov_2dwen6te34().b[0][1]++, "")).trim().toLowerCase());
+  /* istanbul ignore next */
+  cov_2dwen6te34().s[1]++;
+  if (role !== "admin") {
+    /* istanbul ignore next */
+    cov_2dwen6te34().b[1][0]++;
+    cov_2dwen6te34().s[2]++;
+    return res.status(403).json({
+      error: "Não autorizado!"
+    });
+  } else {
+    /* istanbul ignore next */
+    cov_2dwen6te34().b[1][1]++;
+    cov_2dwen6te34().s[3]++;
+    next();
+  }
+}
+export default RoleMiddleware;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMmR3ZW42dGUzNCIsImFjdHVhbENvdmVyYWdlIiwiUm9sZU1pZGRsZXdhcmUiLCJyZXEiLCJyZXMiLCJuZXh0IiwiZiIsInJvbGUiLCJzIiwiU3RyaW5nIiwiYiIsInVzZXJSb2xlIiwidHJpbSIsInRvTG93ZXJDYXNlIiwic3RhdHVzIiwianNvbiIsImVycm9yIl0sInNvdXJjZXMiOlsicm9sZS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJhc3luYyBmdW5jdGlvbiBSb2xlTWlkZGxld2FyZShyZXEsIHJlcywgbmV4dCkge1xyXG4gIGNvbnN0IHJvbGUgPSBTdHJpbmcocmVxLnVzZXJSb2xlIHx8IFwiXCIpLnRyaW0oKS50b0xvd2VyQ2FzZSgpO1xuXHJcbiAgaWYgKHJvbGUgIT09IFwiYWRtaW5cIikge1xyXG4gICAgcmV0dXJuIHJlcy5zdGF0dXMoNDAzKS5qc29uKHsgZXJyb3I6IFwiTsOjbyBhdXRvcml6YWRvIVwiIH0pO1xyXG4gIH0gZWxzZSB7XHJcbiAgICBuZXh0KCk7XHJcbiAgfVxyXG59XHJcblxyXG5leHBvcnQgZGVmYXVsdCBSb2xlTWlkZGxld2FyZTtcclxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZVk7SUFBQUEsY0FBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsY0FBQTtBQWZaLGVBQWVFLGNBQWNBLENBQUNDLEdBQUcsRUFBRUMsR0FBRyxFQUFFQyxJQUFJLEVBQUU7RUFBQTtFQUFBTCxjQUFBLEdBQUFNLENBQUE7RUFDNUMsTUFBTUMsSUFBSTtFQUFBO0VBQUEsQ0FBQVAsY0FBQSxHQUFBUSxDQUFBLE9BQUdDLE1BQU07RUFBQztFQUFBLENBQUFULGNBQUEsR0FBQVUsQ0FBQSxVQUFBUCxHQUFHLENBQUNRLFFBQVE7RUFBQTtFQUFBLENBQUFYLGNBQUEsR0FBQVUsQ0FBQSxVQUFJLEVBQUUsRUFBQyxDQUFDRSxJQUFJLENBQUMsQ0FBQyxDQUFDQyxXQUFXLENBQUMsQ0FBQztFQUFDO0VBQUFiLGNBQUEsR0FBQVEsQ0FBQTtFQUU3RCxJQUFJRCxJQUFJLEtBQUssT0FBTyxFQUFFO0lBQUE7SUFBQVAsY0FBQSxHQUFBVSxDQUFBO0lBQUFWLGNBQUEsR0FBQVEsQ0FBQTtJQUNwQixPQUFPSixHQUFHLENBQUNVLE1BQU0sQ0FBQyxHQUFHLENBQUMsQ0FBQ0MsSUFBSSxDQUFDO01BQUVDLEtBQUssRUFBRTtJQUFrQixDQUFDLENBQUM7RUFDM0QsQ0FBQyxNQUFNO0lBQUE7SUFBQWhCLGNBQUEsR0FBQVUsQ0FBQTtJQUFBVixjQUFBLEdBQUFRLENBQUE7SUFDTEgsSUFBSSxDQUFDLENBQUM7RUFDUjtBQUNGO0FBRUEsZUFBZUgsY0FBYyIsImlnbm9yZUxpc3QiOltdfQ==

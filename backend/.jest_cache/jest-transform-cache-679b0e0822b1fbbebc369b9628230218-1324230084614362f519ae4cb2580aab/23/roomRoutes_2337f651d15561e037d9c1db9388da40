@@ -1,0 +1,110 @@
+3d9aa71d2a32afd631a6429958bfb0c8
+/* istanbul ignore next */
+function cov_ezzhq7k7r() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\routes\\roomRoutes.js";
+  var hash = "1248063eec9de62ae975e8d38bc8818f18bd6493";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\routes\\roomRoutes.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 6,
+          column: 15
+        },
+        end: {
+          line: 6,
+          column: 31
+        }
+      },
+      "1": {
+        start: {
+          line: 8,
+          column: 0
+        },
+        end: {
+          line: 8,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 10,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 79
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 0
+        },
+        end: {
+          line: 12,
+          column: 59
+        }
+      },
+      "4": {
+        start: {
+          line: 14,
+          column: 0
+        },
+        end: {
+          line: 14,
+          column: 64
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "1248063eec9de62ae975e8d38bc8818f18bd6493"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_ezzhq7k7r = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_ezzhq7k7r();
+import express from "express";
+import RoomController from "../controllers/RoomController.js";
+import AuthMiddleware from "../Middlewares/auth.js";
+import RoleMiddleware from "../Middlewares/role.js";
+const router =
+/* istanbul ignore next */
+(cov_ezzhq7k7r().s[0]++, express.Router());
+/* istanbul ignore next */
+cov_ezzhq7k7r().s[1]++;
+router.post("/create", AuthMiddleware, RoomController.create);
+/* istanbul ignore next */
+cov_ezzhq7k7r().s[2]++;
+router.get("/admin/list", AuthMiddleware, RoleMiddleware, RoomController.list);
+/* istanbul ignore next */
+cov_ezzhq7k7r().s[3]++;
+router.get("/:code", AuthMiddleware, RoomController.enter);
+/* istanbul ignore next */
+cov_ezzhq7k7r().s[4]++;
+router.delete("/delete", AuthMiddleware, RoomController.delete);
+export default router;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfZXp6aHE3azdyIiwiYWN0dWFsQ292ZXJhZ2UiLCJleHByZXNzIiwiUm9vbUNvbnRyb2xsZXIiLCJBdXRoTWlkZGxld2FyZSIsIlJvbGVNaWRkbGV3YXJlIiwicm91dGVyIiwicyIsIlJvdXRlciIsInBvc3QiLCJjcmVhdGUiLCJnZXQiLCJsaXN0IiwiZW50ZXIiLCJkZWxldGUiXSwic291cmNlcyI6WyJyb29tUm91dGVzLmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBleHByZXNzIGZyb20gXCJleHByZXNzXCI7XG5pbXBvcnQgUm9vbUNvbnRyb2xsZXIgZnJvbSBcIi4uL2NvbnRyb2xsZXJzL1Jvb21Db250cm9sbGVyLmpzXCI7XG5pbXBvcnQgQXV0aE1pZGRsZXdhcmUgZnJvbSBcIi4uL01pZGRsZXdhcmVzL2F1dGguanNcIjtcbmltcG9ydCBSb2xlTWlkZGxld2FyZSBmcm9tIFwiLi4vTWlkZGxld2FyZXMvcm9sZS5qc1wiO1xuXHJcbmNvbnN0IHJvdXRlciA9IGV4cHJlc3MuUm91dGVyKCk7XHJcblxyXG5yb3V0ZXIucG9zdChcIi9jcmVhdGVcIiwgQXV0aE1pZGRsZXdhcmUsIFJvb21Db250cm9sbGVyLmNyZWF0ZSk7XG5cbnJvdXRlci5nZXQoXCIvYWRtaW4vbGlzdFwiLCBBdXRoTWlkZGxld2FyZSwgUm9sZU1pZGRsZXdhcmUsIFJvb21Db250cm9sbGVyLmxpc3QpO1xuXG5yb3V0ZXIuZ2V0KFwiLzpjb2RlXCIsIEF1dGhNaWRkbGV3YXJlLCBSb29tQ29udHJvbGxlci5lbnRlcik7XG5cclxucm91dGVyLmRlbGV0ZShcIi9kZWxldGVcIiwgQXV0aE1pZGRsZXdhcmUsIFJvb21Db250cm9sbGVyLmRlbGV0ZSk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCByb3V0ZXI7XHJcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFlWTtJQUFBQSxhQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxhQUFBO0FBZlosT0FBT0UsT0FBTyxNQUFNLFNBQVM7QUFDN0IsT0FBT0MsY0FBYyxNQUFNLGtDQUFrQztBQUM3RCxPQUFPQyxjQUFjLE1BQU0sd0JBQXdCO0FBQ25ELE9BQU9DLGNBQWMsTUFBTSx3QkFBd0I7QUFFbkQsTUFBTUMsTUFBTTtBQUFBO0FBQUEsQ0FBQU4sYUFBQSxHQUFBTyxDQUFBLE9BQUdMLE9BQU8sQ0FBQ00sTUFBTSxDQUFDLENBQUM7QUFBQztBQUFBUixhQUFBLEdBQUFPLENBQUE7QUFFaENELE1BQU0sQ0FBQ0csSUFBSSxDQUFDLFNBQVMsRUFBRUwsY0FBYyxFQUFFRCxjQUFjLENBQUNPLE1BQU0sQ0FBQztBQUFDO0FBQUFWLGFBQUEsR0FBQU8sQ0FBQTtBQUU5REQsTUFBTSxDQUFDSyxHQUFHLENBQUMsYUFBYSxFQUFFUCxjQUFjLEVBQUVDLGNBQWMsRUFBRUYsY0FBYyxDQUFDUyxJQUFJLENBQUM7QUFBQztBQUFBWixhQUFBLEdBQUFPLENBQUE7QUFFL0VELE1BQU0sQ0FBQ0ssR0FBRyxDQUFDLFFBQVEsRUFBRVAsY0FBYyxFQUFFRCxjQUFjLENBQUNVLEtBQUssQ0FBQztBQUFDO0FBQUFiLGFBQUEsR0FBQU8sQ0FBQTtBQUUzREQsTUFBTSxDQUFDUSxNQUFNLENBQUMsU0FBUyxFQUFFVixjQUFjLEVBQUVELGNBQWMsQ0FBQ1csTUFBTSxDQUFDO0FBRS9ELGVBQWVSLE1BQU0iLCJpZ25vcmVMaXN0IjpbXX0=

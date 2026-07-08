@@ -1,0 +1,109 @@
+6271af6d2ad4f572d53a14134d428d2a
+/* istanbul ignore next */
+function cov_q4o9yjj3g() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\models\\index.js";
+  var hash = "ceff7d623305bfc6aba631a5890418fc003b7d58";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\models\\index.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 11,
+          column: 0
+        },
+        end: {
+          line: 14,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 16,
+          column: 0
+        },
+        end: {
+          line: 19,
+          column: 3
+        }
+      },
+      "3": {
+        start: {
+          line: 21,
+          column: 0
+        },
+        end: {
+          line: 24,
+          column: 3
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "ceff7d623305bfc6aba631a5890418fc003b7d58"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_q4o9yjj3g = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_q4o9yjj3g();
+import Room from "./Room.js";
+import Question from "./Question.js";
+import Users from "./Users.js";
+
+// Define associations
+/* istanbul ignore next */
+cov_q4o9yjj3g().s[0]++;
+Room.hasMany(Question, {
+  foreignKey: "roomId",
+  as: "questions"
+});
+/* istanbul ignore next */
+cov_q4o9yjj3g().s[1]++;
+Question.belongsTo(Room, {
+  foreignKey: "roomId",
+  as: "room"
+});
+/* istanbul ignore next */
+cov_q4o9yjj3g().s[2]++;
+Users.hasMany(Room, {
+  foreignKey: "userId",
+  as: "rooms"
+});
+/* istanbul ignore next */
+cov_q4o9yjj3g().s[3]++;
+Room.belongsTo(Users, {
+  foreignKey: "userId",
+  as: "user"
+});
+export { Room, Question, Users };
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfcTRvOXlqajNnIiwiYWN0dWFsQ292ZXJhZ2UiLCJSb29tIiwiUXVlc3Rpb24iLCJVc2VycyIsInMiLCJoYXNNYW55IiwiZm9yZWlnbktleSIsImFzIiwiYmVsb25nc1RvIl0sInNvdXJjZXMiOlsiaW5kZXguanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJvb20gZnJvbSBcIi4vUm9vbS5qc1wiO1xuaW1wb3J0IFF1ZXN0aW9uIGZyb20gXCIuL1F1ZXN0aW9uLmpzXCI7XG5pbXBvcnQgVXNlcnMgZnJvbSBcIi4vVXNlcnMuanNcIjtcblxyXG4vLyBEZWZpbmUgYXNzb2NpYXRpb25zXHJcblJvb20uaGFzTWFueShRdWVzdGlvbiwge1xyXG4gIGZvcmVpZ25LZXk6IFwicm9vbUlkXCIsXHJcbiAgYXM6IFwicXVlc3Rpb25zXCIsXHJcbn0pO1xyXG5cclxuUXVlc3Rpb24uYmVsb25nc1RvKFJvb20sIHtcbiAgZm9yZWlnbktleTogXCJyb29tSWRcIixcbiAgYXM6IFwicm9vbVwiLFxufSk7XG5cblVzZXJzLmhhc01hbnkoUm9vbSwge1xuICBmb3JlaWduS2V5OiBcInVzZXJJZFwiLFxuICBhczogXCJyb29tc1wiLFxufSk7XG5cblJvb20uYmVsb25nc1RvKFVzZXJzLCB7XG4gIGZvcmVpZ25LZXk6IFwidXNlcklkXCIsXG4gIGFzOiBcInVzZXJcIixcbn0pO1xuXG5leHBvcnQgeyBSb29tLCBRdWVzdGlvbiwgVXNlcnMgfTtcblxyXG5cclxuXHJcblxyXG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQWVZO0lBQUFBLGFBQUEsWUFBQUEsQ0FBQTtNQUFBLE9BQUFDLGNBQUE7SUFBQTtFQUFBO0VBQUEsT0FBQUEsY0FBQTtBQUFBO0FBQUFELGFBQUE7QUFmWixPQUFPRSxJQUFJLE1BQU0sV0FBVztBQUM1QixPQUFPQyxRQUFRLE1BQU0sZUFBZTtBQUNwQyxPQUFPQyxLQUFLLE1BQU0sWUFBWTs7QUFFOUI7QUFBQTtBQUFBSixhQUFBLEdBQUFLLENBQUE7QUFDQUgsSUFBSSxDQUFDSSxPQUFPLENBQUNILFFBQVEsRUFBRTtFQUNyQkksVUFBVSxFQUFFLFFBQVE7RUFDcEJDLEVBQUUsRUFBRTtBQUNOLENBQUMsQ0FBQztBQUFDO0FBQUFSLGFBQUEsR0FBQUssQ0FBQTtBQUVIRixRQUFRLENBQUNNLFNBQVMsQ0FBQ1AsSUFBSSxFQUFFO0VBQ3ZCSyxVQUFVLEVBQUUsUUFBUTtFQUNwQkMsRUFBRSxFQUFFO0FBQ04sQ0FBQyxDQUFDO0FBQUM7QUFBQVIsYUFBQSxHQUFBSyxDQUFBO0FBRUhELEtBQUssQ0FBQ0UsT0FBTyxDQUFDSixJQUFJLEVBQUU7RUFDbEJLLFVBQVUsRUFBRSxRQUFRO0VBQ3BCQyxFQUFFLEVBQUU7QUFDTixDQUFDLENBQUM7QUFBQztBQUFBUixhQUFBLEdBQUFLLENBQUE7QUFFSEgsSUFBSSxDQUFDTyxTQUFTLENBQUNMLEtBQUssRUFBRTtFQUNwQkcsVUFBVSxFQUFFLFFBQVE7RUFDcEJDLEVBQUUsRUFBRTtBQUNOLENBQUMsQ0FBQztBQUVGLFNBQVNOLElBQUksRUFBRUMsUUFBUSxFQUFFQyxLQUFLIiwiaWdub3JlTGlzdCI6W119

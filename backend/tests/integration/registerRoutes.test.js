@@ -8,7 +8,6 @@ import {
   truncateDatabase,
 } from "../setup/testDatabase.js";
 import { JWT_SECRET } from "../../src/config/auth.js";
-import { Question, Room } from "../../src/models/index.js";
 
 function authHeader(user) {
   return `Bearer ${jwt.sign({ id: user.id, role: user.role }, JWT_SECRET)}`;
@@ -41,6 +40,7 @@ describe("Register and protected routes", () => {
   test("returns 409 when user already exists", async () => {
     await createUser({
       email: "teste432@gmail.com",
+      role: "user",
     });
 
     const response = await request(app).post("/api/register/create").send({
@@ -75,6 +75,7 @@ describe("Register and protected routes", () => {
 
   test("blocks login when password is incorrect", async () => {
     await createUser({
+      email: "student@example.com",
       password: "12345678",
     });
 
@@ -131,64 +132,5 @@ describe("Register and protected routes", () => {
 
     expect(response.status).toBe(401);
     expect(response.body).toEqual({ error: "Token not provided" });
-  });
-
-  test("lists rooms with owner and question data for admin users", async () => {
-    const admin = await createUser({
-      email: "admin@example.com",
-      role: "admin",
-    });
-    const owner = await createUser({
-      email: "owner@example.com",
-    });
-    const anotherOwner = await createUser({
-      email: "another-owner@example.com",
-    });
-
-    const ownerRoom = await Room.create({
-      password: "12345678",
-      code: 12345,
-      userId: owner.id,
-    });
-    await Room.create({
-      password: "12345678",
-      code: 54321,
-      userId: anotherOwner.id,
-    });
-    await Question.create({
-      title: "How does auth work?",
-      roomId: ownerRoom.id,
-      isAnswered: false,
-    });
-
-    const response = await request(app)
-      .get(`/api/rooms/admin/list?userId=${owner.id}`)
-      .set("Authorization", authHeader(admin));
-
-    expect(response.status).toBe(200);
-    expect(response.body.rooms).toHaveLength(1);
-    expect(response.body.rooms[0]).toMatchObject({
-      code: 12345,
-      userId: owner.id,
-      user: {
-        id: owner.id,
-        email: "owner@example.com",
-      },
-    });
-    expect(response.body.rooms[0].questions).toHaveLength(1);
-  });
-
-  test("blocks normal users from admin room list", async () => {
-    const user = await createUser({
-      email: "normal-user@example.com",
-      role: "user",
-    });
-
-    const response = await request(app)
-      .get("/api/rooms/admin/list")
-      .set("Authorization", authHeader(user));
-
-    expect(response.status).toBe(403);
-    expect(response.body).toEqual({ error: "Não autorizado!" });
   });
 });

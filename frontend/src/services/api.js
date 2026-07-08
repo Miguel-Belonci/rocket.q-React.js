@@ -97,6 +97,13 @@ class ApiService {
     });
   }
 
+  async authWithGoogle(credential) {
+    return this.request("/register/auth-google", {
+      method: "POST",
+      body: { credential: credential },
+    });
+  }
+
   // user related methods
   async getProfile() {
     return this.request("/user/me", {

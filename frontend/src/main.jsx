@@ -13,29 +13,32 @@ import "./index.css";
 import { AuthProvider } from "./context/auth.jsx";
 import { Provider } from "@/components/ui/provider";
 import PrivateRoutes from "./routes/privateRoutes.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <Provider>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<PrivateRoutes />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/create-pass" element={<CreatePass />} />
-            <Route path="/room/:code" element={<Room />} />
-            <Route path="/room/error" element={<RoomError />} />
-            <Route path="/user" element={<UserPage />} />
-          </Route>
+  <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+    <AuthProvider>
+      <Provider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<PrivateRoutes />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/create-pass" element={<CreatePass />} />
+              <Route path="/room/:code" element={<Room />} />
+              <Route path="/room/error" element={<RoomError />} />
+              <Route path="/user" element={<UserPage />} />
+            </Route>
 
-          <Route element={<PrivateRoutes role="admin" />}>
-            <Route path="/users" element={<UsersList />}></Route>
-            <Route path="/admin" element={<AdminPage />} />
-          </Route>
+            <Route element={<PrivateRoutes role="admin" />}>
+              <Route path="/users" element={<UsersList />}></Route>
+              <Route path="/admin" element={<AdminPage />} />
+            </Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </BrowserRouter>
-    </Provider>
-  </AuthProvider>,
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </AuthProvider>
+  </GoogleOAuthProvider>,
 );

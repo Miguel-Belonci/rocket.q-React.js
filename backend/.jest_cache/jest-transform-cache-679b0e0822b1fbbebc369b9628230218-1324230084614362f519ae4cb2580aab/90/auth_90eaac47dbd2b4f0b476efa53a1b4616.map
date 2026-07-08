@@ -1,0 +1,1 @@
+{"version":3,"names":["JWT_SECRET","process","env"],"sources":["auth.js"],"sourcesContent":["export const JWT_SECRET = process.env.JWT_SECRET || \"secret\";\r\n"],"mappings":"AAAA,OAAO,MAAMA,UAAU,GAAGC,OAAO,CAACC,GAAG,CAACF,UAAU,IAAI,QAAQ","ignoreList":[]}

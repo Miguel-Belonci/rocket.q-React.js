@@ -1,0 +1,110 @@
+53da644369852081efa2bd5b4555e865
+/* istanbul ignore next */
+function cov_25xfwo9591() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\routes\\userRoutes.js";
+  var hash = "af1121bcce708583199cb886326099da8db84928";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\routes\\userRoutes.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 6,
+          column: 15
+        },
+        end: {
+          line: 6,
+          column: 31
+        }
+      },
+      "1": {
+        start: {
+          line: 8,
+          column: 0
+        },
+        end: {
+          line: 8,
+          column: 57
+        }
+      },
+      "2": {
+        start: {
+          line: 10,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 75
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 0
+        },
+        end: {
+          line: 12,
+          column: 81
+        }
+      },
+      "4": {
+        start: {
+          line: 14,
+          column: 0
+        },
+        end: {
+          line: 14,
+          column: 87
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "af1121bcce708583199cb886326099da8db84928"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_25xfwo9591 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_25xfwo9591();
+import express from "express";
+import AuthMiddleware from "../Middlewares/auth.js";
+import RoleMiddleware from "../Middlewares/role.js";
+import UserContoller from "../controllers/UserController.js";
+const router =
+/* istanbul ignore next */
+(cov_25xfwo9591().s[0]++, express.Router());
+/* istanbul ignore next */
+cov_25xfwo9591().s[1]++;
+router.get("/me", AuthMiddleware, UserContoller.profile);
+/* istanbul ignore next */
+cov_25xfwo9591().s[2]++;
+router.post("/new-password", AuthMiddleware, UserContoller.changePassword);
+/* istanbul ignore next */
+cov_25xfwo9591().s[3]++;
+router.get("/users-list", AuthMiddleware, RoleMiddleware, UserContoller.getUsers);
+/* istanbul ignore next */
+cov_25xfwo9591().s[4]++;
+router.patch("/handle-user", AuthMiddleware, RoleMiddleware, UserContoller.handleUser);
+export default router;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMjV4ZndvOTU5MSIsImFjdHVhbENvdmVyYWdlIiwiZXhwcmVzcyIsIkF1dGhNaWRkbGV3YXJlIiwiUm9sZU1pZGRsZXdhcmUiLCJVc2VyQ29udG9sbGVyIiwicm91dGVyIiwicyIsIlJvdXRlciIsImdldCIsInByb2ZpbGUiLCJwb3N0IiwiY2hhbmdlUGFzc3dvcmQiLCJnZXRVc2VycyIsInBhdGNoIiwiaGFuZGxlVXNlciJdLCJzb3VyY2VzIjpbInVzZXJSb3V0ZXMuanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGV4cHJlc3MgZnJvbSBcImV4cHJlc3NcIjtcclxuaW1wb3J0IEF1dGhNaWRkbGV3YXJlIGZyb20gXCIuLi9NaWRkbGV3YXJlcy9hdXRoLmpzXCI7XHJcbmltcG9ydCBSb2xlTWlkZGxld2FyZSBmcm9tIFwiLi4vTWlkZGxld2FyZXMvcm9sZS5qc1wiXHJcbmltcG9ydCBVc2VyQ29udG9sbGVyIGZyb20gXCIuLi9jb250cm9sbGVycy9Vc2VyQ29udHJvbGxlci5qc1wiO1xyXG5cclxuY29uc3Qgcm91dGVyID0gZXhwcmVzcy5Sb3V0ZXIoKTtcblxucm91dGVyLmdldChcIi9tZVwiLCBBdXRoTWlkZGxld2FyZSwgVXNlckNvbnRvbGxlci5wcm9maWxlKTtcblxucm91dGVyLnBvc3QoXCIvbmV3LXBhc3N3b3JkXCIsIEF1dGhNaWRkbGV3YXJlLCBVc2VyQ29udG9sbGVyLmNoYW5nZVBhc3N3b3JkKTtcblxyXG5yb3V0ZXIuZ2V0KFwiL3VzZXJzLWxpc3RcIiwgQXV0aE1pZGRsZXdhcmUsIFJvbGVNaWRkbGV3YXJlLCBVc2VyQ29udG9sbGVyLmdldFVzZXJzKVxyXG5cclxucm91dGVyLnBhdGNoKFwiL2hhbmRsZS11c2VyXCIsIEF1dGhNaWRkbGV3YXJlLCBSb2xlTWlkZGxld2FyZSwgVXNlckNvbnRvbGxlci5oYW5kbGVVc2VyIClcclxuXHJcbmV4cG9ydCBkZWZhdWx0IHJvdXRlcjtcclxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQWVZO0lBQUFBLGNBQUEsWUFBQUEsQ0FBQTtNQUFBLE9BQUFDLGNBQUE7SUFBQTtFQUFBO0VBQUEsT0FBQUEsY0FBQTtBQUFBO0FBQUFELGNBQUE7QUFmWixPQUFPRSxPQUFPLE1BQU0sU0FBUztBQUM3QixPQUFPQyxjQUFjLE1BQU0sd0JBQXdCO0FBQ25ELE9BQU9DLGNBQWMsTUFBTSx3QkFBd0I7QUFDbkQsT0FBT0MsYUFBYSxNQUFNLGtDQUFrQztBQUU1RCxNQUFNQyxNQUFNO0FBQUE7QUFBQSxDQUFBTixjQUFBLEdBQUFPLENBQUEsT0FBR0wsT0FBTyxDQUFDTSxNQUFNLENBQUMsQ0FBQztBQUFDO0FBQUFSLGNBQUEsR0FBQU8sQ0FBQTtBQUVoQ0QsTUFBTSxDQUFDRyxHQUFHLENBQUMsS0FBSyxFQUFFTixjQUFjLEVBQUVFLGFBQWEsQ0FBQ0ssT0FBTyxDQUFDO0FBQUM7QUFBQVYsY0FBQSxHQUFBTyxDQUFBO0FBRXpERCxNQUFNLENBQUNLLElBQUksQ0FBQyxlQUFlLEVBQUVSLGNBQWMsRUFBRUUsYUFBYSxDQUFDTyxjQUFjLENBQUM7QUFBQztBQUFBWixjQUFBLEdBQUFPLENBQUE7QUFFM0VELE1BQU0sQ0FBQ0csR0FBRyxDQUFDLGFBQWEsRUFBRU4sY0FBYyxFQUFFQyxjQUFjLEVBQUVDLGFBQWEsQ0FBQ1EsUUFBUSxDQUFDO0FBQUE7QUFBQWIsY0FBQSxHQUFBTyxDQUFBO0FBRWpGRCxNQUFNLENBQUNRLEtBQUssQ0FBQyxjQUFjLEVBQUVYLGNBQWMsRUFBRUMsY0FBYyxFQUFFQyxhQUFhLENBQUNVLFVBQVcsQ0FBQztBQUV2RixlQUFlVCxNQUFNIiwiaWdub3JlTGlzdCI6W119

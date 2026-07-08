@@ -58,4 +58,17 @@
   margin-top: 1.5rem;
 }
 
+.google-login-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  min-height: 4.4rem;
+}
+
+.google-login-wrapper iframe {
+  transform: scale(1.08);
+  transform-origin: top center;
+}
+
 

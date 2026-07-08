@@ -3,12 +3,13 @@ import { AuthContext } from "../../context/authContext";
 import "./login.css";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 
 function Login() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const { signIn, signed } = useContext(AuthContext);
+  const { signIn, signInWithGoogle, signed } = useContext(AuthContext);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -19,13 +20,19 @@ function Login() {
     try {
       await signIn(email, password);
     } catch (error) {
-      console.log("Falha ao fazer login", error)
-      setError(error.message)
+      console.log("Falha ao fazer login", error);
+      setError(error.message);
     }
-    
-
   }
 
+  async function handleGoogleLoginSuccess(response) {
+    try {
+      await signInWithGoogle(response.credential);
+    } catch (error) {
+      console.log("Falha ao fazer login com Google", error);
+      setError(error.message);
+    }
+  }
   if (signed) {
     return <Navigate to="/" />;
   } else {
@@ -71,7 +78,25 @@ function Login() {
 
             <a href="">Esqueceu a senha?</a>
 
-            <button data-cy="login-submit" type="submit">Login</button>
+            <button data-cy="login-submit" type="submit">
+              Login
+            </button>
+
+            <div>
+              <GoogleLogin
+                onSuccess={handleGoogleLoginSuccess}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+                theme="outline"
+                size="large"
+                text="signin_with"
+                shape="rectangular"
+                logo_alignment="left"
+                width="360"
+                containerProps={{ className: "google-login-wrapper" }}
+              />
+            </div>
           </form>
 
           <p className="signup">

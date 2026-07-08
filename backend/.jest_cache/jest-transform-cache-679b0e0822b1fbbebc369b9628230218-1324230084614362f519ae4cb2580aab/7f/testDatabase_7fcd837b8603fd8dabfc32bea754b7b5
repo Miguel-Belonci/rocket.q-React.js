@@ -1,0 +1,248 @@
+9298fda9fabc085288d3768b637dcbeb
+/* istanbul ignore next */
+function cov_232k4h18et() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\tests\\setup\\testDatabase.js";
+  var hash = "3dbf4711e2ef13b146ac69d5aab170845e6828df";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\tests\\setup\\testDatabase.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 6,
+          column: 2
+        },
+        end: {
+          line: 6,
+          column: 40
+        }
+      },
+      "1": {
+        start: {
+          line: 10,
+          column: 2
+        },
+        end: {
+          line: 10,
+          column: 69
+        }
+      },
+      "2": {
+        start: {
+          line: 14,
+          column: 2
+        },
+        end: {
+          line: 14,
+          column: 26
+        }
+      },
+      "3": {
+        start: {
+          line: 18,
+          column: 2
+        },
+        end: {
+          line: 24,
+          column: 5
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "syncDatabase",
+        decl: {
+          start: {
+            line: 5,
+            column: 22
+          },
+          end: {
+            line: 5,
+            column: 34
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 37
+          },
+          end: {
+            line: 7,
+            column: 1
+          }
+        },
+        line: 5
+      },
+      "1": {
+        name: "truncateDatabase",
+        decl: {
+          start: {
+            line: 9,
+            column: 22
+          },
+          end: {
+            line: 9,
+            column: 38
+          }
+        },
+        loc: {
+          start: {
+            line: 9,
+            column: 41
+          },
+          end: {
+            line: 11,
+            column: 1
+          }
+        },
+        line: 9
+      },
+      "2": {
+        name: "closeDatabase",
+        decl: {
+          start: {
+            line: 13,
+            column: 22
+          },
+          end: {
+            line: 13,
+            column: 35
+          }
+        },
+        loc: {
+          start: {
+            line: 13,
+            column: 38
+          },
+          end: {
+            line: 15,
+            column: 1
+          }
+        },
+        line: 13
+      },
+      "3": {
+        name: "createUser",
+        decl: {
+          start: {
+            line: 17,
+            column: 22
+          },
+          end: {
+            line: 17,
+            column: 32
+          }
+        },
+        loc: {
+          start: {
+            line: 17,
+            column: 49
+          },
+          end: {
+            line: 25,
+            column: 1
+          }
+        },
+        line: 17
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 17,
+            column: 33
+          },
+          end: {
+            line: 17,
+            column: 47
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 17,
+            column: 45
+          },
+          end: {
+            line: 17,
+            column: 47
+          }
+        }],
+        line: 17
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    b: {
+      "0": [0]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "3dbf4711e2ef13b146ac69d5aab170845e6828df"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_232k4h18et = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_232k4h18et();
+import { sequelize } from "../../src/config/database.js";
+import "../../src/models/index.js";
+import Users from "../../src/models/Users.js";
+export async function syncDatabase() {
+  /* istanbul ignore next */
+  cov_232k4h18et().f[0]++;
+  cov_232k4h18et().s[0]++;
+  await sequelize.sync({
+    force: true
+  });
+}
+export async function truncateDatabase() {
+  /* istanbul ignore next */
+  cov_232k4h18et().f[1]++;
+  cov_232k4h18et().s[1]++;
+  await sequelize.truncate({
+    cascade: true,
+    restartIdentity: true
+  });
+}
+export async function closeDatabase() {
+  /* istanbul ignore next */
+  cov_232k4h18et().f[2]++;
+  cov_232k4h18et().s[2]++;
+  await sequelize.close();
+}
+export async function createUser(overrides =
+/* istanbul ignore next */
+(cov_232k4h18et().b[0][0]++, {})) {
+  /* istanbul ignore next */
+  cov_232k4h18et().f[3]++;
+  cov_232k4h18et().s[3]++;
+  return Users.create({
+    email: "student@example.com",
+    password: "12345678",
+    role: "user",
+    active: true,
+    ...overrides
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMjMyazRoMThldCIsImFjdHVhbENvdmVyYWdlIiwic2VxdWVsaXplIiwiVXNlcnMiLCJzeW5jRGF0YWJhc2UiLCJmIiwicyIsInN5bmMiLCJmb3JjZSIsInRydW5jYXRlRGF0YWJhc2UiLCJ0cnVuY2F0ZSIsImNhc2NhZGUiLCJyZXN0YXJ0SWRlbnRpdHkiLCJjbG9zZURhdGFiYXNlIiwiY2xvc2UiLCJjcmVhdGVVc2VyIiwib3ZlcnJpZGVzIiwiYiIsImNyZWF0ZSIsImVtYWlsIiwicGFzc3dvcmQiLCJyb2xlIiwiYWN0aXZlIl0sInNvdXJjZXMiOlsidGVzdERhdGFiYXNlLmpzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHNlcXVlbGl6ZSB9IGZyb20gXCIuLi8uLi9zcmMvY29uZmlnL2RhdGFiYXNlLmpzXCI7XHJcbmltcG9ydCBcIi4uLy4uL3NyYy9tb2RlbHMvaW5kZXguanNcIjtcclxuaW1wb3J0IFVzZXJzIGZyb20gXCIuLi8uLi9zcmMvbW9kZWxzL1VzZXJzLmpzXCI7XHJcblxyXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gc3luY0RhdGFiYXNlKCkge1xyXG4gIGF3YWl0IHNlcXVlbGl6ZS5zeW5jKHsgZm9yY2U6IHRydWUgfSk7XHJcbn1cclxuXHJcbmV4cG9ydCBhc3luYyBmdW5jdGlvbiB0cnVuY2F0ZURhdGFiYXNlKCkge1xyXG4gIGF3YWl0IHNlcXVlbGl6ZS50cnVuY2F0ZSh7IGNhc2NhZGU6IHRydWUsIHJlc3RhcnRJZGVudGl0eTogdHJ1ZSB9KTtcclxufVxyXG5cclxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGNsb3NlRGF0YWJhc2UoKSB7XHJcbiAgYXdhaXQgc2VxdWVsaXplLmNsb3NlKCk7XHJcbn1cclxuXHJcbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBjcmVhdGVVc2VyKG92ZXJyaWRlcyA9IHt9KSB7XHJcbiAgcmV0dXJuIFVzZXJzLmNyZWF0ZSh7XHJcbiAgICBlbWFpbDogXCJzdHVkZW50QGV4YW1wbGUuY29tXCIsXHJcbiAgICBwYXNzd29yZDogXCIxMjM0NTY3OFwiLFxyXG4gICAgcm9sZTogXCJ1c2VyXCIsXHJcbiAgICBhY3RpdmU6IHRydWUsXHJcbiAgICAuLi5vdmVycmlkZXMsXHJcbiAgfSk7XHJcbn1cclxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFlWTtJQUFBQSxjQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxjQUFBO0FBZlosU0FBU0UsU0FBUyxRQUFRLDhCQUE4QjtBQUN4RCxPQUFPLDJCQUEyQjtBQUNsQyxPQUFPQyxLQUFLLE1BQU0sMkJBQTJCO0FBRTdDLE9BQU8sZUFBZUMsWUFBWUEsQ0FBQSxFQUFHO0VBQUE7RUFBQUosY0FBQSxHQUFBSyxDQUFBO0VBQUFMLGNBQUEsR0FBQU0sQ0FBQTtFQUNuQyxNQUFNSixTQUFTLENBQUNLLElBQUksQ0FBQztJQUFFQyxLQUFLLEVBQUU7RUFBSyxDQUFDLENBQUM7QUFDdkM7QUFFQSxPQUFPLGVBQWVDLGdCQUFnQkEsQ0FBQSxFQUFHO0VBQUE7RUFBQVQsY0FBQSxHQUFBSyxDQUFBO0VBQUFMLGNBQUEsR0FBQU0sQ0FBQTtFQUN2QyxNQUFNSixTQUFTLENBQUNRLFFBQVEsQ0FBQztJQUFFQyxPQUFPLEVBQUUsSUFBSTtJQUFFQyxlQUFlLEVBQUU7RUFBSyxDQUFDLENBQUM7QUFDcEU7QUFFQSxPQUFPLGVBQWVDLGFBQWFBLENBQUEsRUFBRztFQUFBO0VBQUFiLGNBQUEsR0FBQUssQ0FBQTtFQUFBTCxjQUFBLEdBQUFNLENBQUE7RUFDcEMsTUFBTUosU0FBUyxDQUFDWSxLQUFLLENBQUMsQ0FBQztBQUN6QjtBQUVBLE9BQU8sZUFBZUMsVUFBVUEsQ0FBQ0MsU0FBUztBQUFBO0FBQUEsQ0FBQWhCLGNBQUEsR0FBQWlCLENBQUEsVUFBRyxDQUFDLENBQUMsR0FBRTtFQUFBO0VBQUFqQixjQUFBLEdBQUFLLENBQUE7RUFBQUwsY0FBQSxHQUFBTSxDQUFBO0VBQy9DLE9BQU9ILEtBQUssQ0FBQ2UsTUFBTSxDQUFDO0lBQ2xCQyxLQUFLLEVBQUUscUJBQXFCO0lBQzVCQyxRQUFRLEVBQUUsVUFBVTtJQUNwQkMsSUFBSSxFQUFFLE1BQU07SUFDWkMsTUFBTSxFQUFFLElBQUk7SUFDWixHQUFHTjtFQUNMLENBQUMsQ0FBQztBQUNKIiwiaWdub3JlTGlzdCI6W119

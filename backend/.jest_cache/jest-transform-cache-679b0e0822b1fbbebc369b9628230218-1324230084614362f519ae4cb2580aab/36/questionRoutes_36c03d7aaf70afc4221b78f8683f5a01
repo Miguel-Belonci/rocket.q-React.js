@@ -1,0 +1,97 @@
+18d9cdb060e47b39a537979190b43732
+/* istanbul ignore next */
+function cov_rszgdusnv() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\routes\\questionRoutes.js";
+  var hash = "6a91bb1c85d4b07fccfd0b38afd04fc393c2884e";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\routes\\questionRoutes.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 4,
+          column: 15
+        },
+        end: {
+          line: 4,
+          column: 31
+        }
+      },
+      "1": {
+        start: {
+          line: 7,
+          column: 0
+        },
+        end: {
+          line: 7,
+          column: 75
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 77
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 70
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "6a91bb1c85d4b07fccfd0b38afd04fc393c2884e"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_rszgdusnv = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_rszgdusnv();
+import express from "express";
+import QuestionController from "../controllers/QuestionController.js";
+import AuthMiddleware from "../Middlewares/auth.js";
+const router =
+/* istanbul ignore next */
+(cov_rszgdusnv().s[0]++, express.Router());
+
+// POST create a new quwstion
+/* istanbul ignore next */
+cov_rszgdusnv().s[1]++;
+router.post("/create-question", AuthMiddleware, QuestionController.create);
+/* istanbul ignore next */
+cov_rszgdusnv().s[2]++;
+router.delete("/delete-question", AuthMiddleware, QuestionController.delete);
+/* istanbul ignore next */
+cov_rszgdusnv().s[3]++;
+router.put("/read-question", AuthMiddleware, QuestionController.read);
+export default router;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfcnN6Z2R1c252IiwiYWN0dWFsQ292ZXJhZ2UiLCJleHByZXNzIiwiUXVlc3Rpb25Db250cm9sbGVyIiwiQXV0aE1pZGRsZXdhcmUiLCJyb3V0ZXIiLCJzIiwiUm91dGVyIiwicG9zdCIsImNyZWF0ZSIsImRlbGV0ZSIsInB1dCIsInJlYWQiXSwic291cmNlcyI6WyJxdWVzdGlvblJvdXRlcy5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgZXhwcmVzcyBmcm9tIFwiZXhwcmVzc1wiO1xyXG5pbXBvcnQgUXVlc3Rpb25Db250cm9sbGVyIGZyb20gXCIuLi9jb250cm9sbGVycy9RdWVzdGlvbkNvbnRyb2xsZXIuanNcIjtcclxuaW1wb3J0IEF1dGhNaWRkbGV3YXJlIGZyb20gXCIuLi9NaWRkbGV3YXJlcy9hdXRoLmpzXCI7XHJcbmNvbnN0IHJvdXRlciA9IGV4cHJlc3MuUm91dGVyKCk7XHJcblxyXG4vLyBQT1NUIGNyZWF0ZSBhIG5ldyBxdXdzdGlvblxyXG5yb3V0ZXIucG9zdChcIi9jcmVhdGUtcXVlc3Rpb25cIiwgQXV0aE1pZGRsZXdhcmUsIFF1ZXN0aW9uQ29udHJvbGxlci5jcmVhdGUpO1xyXG5cclxucm91dGVyLmRlbGV0ZShcIi9kZWxldGUtcXVlc3Rpb25cIiwgQXV0aE1pZGRsZXdhcmUsIFF1ZXN0aW9uQ29udHJvbGxlci5kZWxldGUpO1xyXG5cclxucm91dGVyLnB1dChcIi9yZWFkLXF1ZXN0aW9uXCIsIEF1dGhNaWRkbGV3YXJlLCBRdWVzdGlvbkNvbnRyb2xsZXIucmVhZCk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCByb3V0ZXI7XHJcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZVk7SUFBQUEsYUFBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsYUFBQTtBQWZaLE9BQU9FLE9BQU8sTUFBTSxTQUFTO0FBQzdCLE9BQU9DLGtCQUFrQixNQUFNLHNDQUFzQztBQUNyRSxPQUFPQyxjQUFjLE1BQU0sd0JBQXdCO0FBQ25ELE1BQU1DLE1BQU07QUFBQTtBQUFBLENBQUFMLGFBQUEsR0FBQU0sQ0FBQSxPQUFHSixPQUFPLENBQUNLLE1BQU0sQ0FBQyxDQUFDOztBQUUvQjtBQUFBO0FBQUFQLGFBQUEsR0FBQU0sQ0FBQTtBQUNBRCxNQUFNLENBQUNHLElBQUksQ0FBQyxrQkFBa0IsRUFBRUosY0FBYyxFQUFFRCxrQkFBa0IsQ0FBQ00sTUFBTSxDQUFDO0FBQUM7QUFBQVQsYUFBQSxHQUFBTSxDQUFBO0FBRTNFRCxNQUFNLENBQUNLLE1BQU0sQ0FBQyxrQkFBa0IsRUFBRU4sY0FBYyxFQUFFRCxrQkFBa0IsQ0FBQ08sTUFBTSxDQUFDO0FBQUM7QUFBQVYsYUFBQSxHQUFBTSxDQUFBO0FBRTdFRCxNQUFNLENBQUNNLEdBQUcsQ0FBQyxnQkFBZ0IsRUFBRVAsY0FBYyxFQUFFRCxrQkFBa0IsQ0FBQ1MsSUFBSSxDQUFDO0FBRXJFLGVBQWVQLE1BQU0iLCJpZ25vcmVMaXN0IjpbXX0=

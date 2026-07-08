@@ -70,7 +70,7 @@ class RoomController {
       return res.status(200).json({
         room: room,
         questions: room.questions,
-        message: "Room was found succssfully",
+        message: "Room was found successfully",
       });
     } catch (error) {
       console.error("Error enter room", error);

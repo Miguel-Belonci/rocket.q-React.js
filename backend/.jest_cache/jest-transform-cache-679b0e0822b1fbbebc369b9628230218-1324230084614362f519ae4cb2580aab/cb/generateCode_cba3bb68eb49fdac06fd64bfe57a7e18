@@ -1,0 +1,255 @@
+0e0922b80199a1fae0ca860aa0c05cf4
+/* istanbul ignore next */
+function cov_5lbnb4zwq() {
+  var path = "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\config\\utils\\generateCode.js";
+  var hash = "8b02fc0722650660a7573da5339cbdea4314faa4";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\belon\\OneDrive\\\xC1rea de Trabalho\\Documentos\\RocketQReact\\backend\\src\\config\\utils\\generateCode.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 18
+        },
+        end: {
+          line: 2,
+          column: 22
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 2
+        },
+        end: {
+          line: 16,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 4
+        },
+        end: {
+          line: 6,
+          column: 14
+        }
+      },
+      "3": {
+        start: {
+          line: 7,
+          column: 4
+        },
+        end: {
+          line: 9,
+          column: 5
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 17
+        },
+        end: {
+          line: 7,
+          column: 18
+        }
+      },
+      "5": {
+        start: {
+          line: 8,
+          column: 6
+        },
+        end: {
+          line: 8,
+          column: 56
+        }
+      },
+      "6": {
+        start: {
+          line: 11,
+          column: 25
+        },
+        end: {
+          line: 11,
+          column: 64
+        }
+      },
+      "7": {
+        start: {
+          line: 13,
+          column: 4
+        },
+        end: {
+          line: 15,
+          column: 5
+        }
+      },
+      "8": {
+        start: {
+          line: 14,
+          column: 6
+        },
+        end: {
+          line: 14,
+          column: 24
+        }
+      },
+      "9": {
+        start: {
+          line: 17,
+          column: 2
+        },
+        end: {
+          line: 17,
+          column: 14
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "GenerateCodeUnique",
+        decl: {
+          start: {
+            line: 1,
+            column: 15
+          },
+          end: {
+            line: 1,
+            column: 33
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 40
+          },
+          end: {
+            line: 18,
+            column: 1
+          }
+        },
+        line: 1
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 13,
+            column: 4
+          },
+          end: {
+            line: 15,
+            column: 5
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 13,
+            column: 4
+          },
+          end: {
+            line: 15,
+            column: 5
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 13
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "8b02fc0722650660a7573da5339cbdea4314faa4"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_5lbnb4zwq = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_5lbnb4zwq();
+async function GenerateCodeUnique(room) {
+  /* istanbul ignore next */
+  cov_5lbnb4zwq().f[0]++;
+  let codeFound =
+  /* istanbul ignore next */
+  (cov_5lbnb4zwq().s[0]++, true);
+  let code;
+  /* istanbul ignore next */
+  cov_5lbnb4zwq().s[1]++;
+  while (codeFound) {
+    /* istanbul ignore next */
+    cov_5lbnb4zwq().s[2]++;
+    code = "";
+    /* istanbul ignore next */
+    cov_5lbnb4zwq().s[3]++;
+    for (let i =
+    /* istanbul ignore next */
+    (cov_5lbnb4zwq().s[4]++, 0); i < 5; i++) {
+      /* istanbul ignore next */
+      cov_5lbnb4zwq().s[5]++;
+      code += Math.floor(Math.random() * 10).toString();
+    }
+    const roomIdExists =
+    /* istanbul ignore next */
+    (cov_5lbnb4zwq().s[6]++, await room.findOne({
+      where: {
+        code
+      }
+    }));
+    /* istanbul ignore next */
+    cov_5lbnb4zwq().s[7]++;
+    if (!roomIdExists) {
+      /* istanbul ignore next */
+      cov_5lbnb4zwq().b[0][0]++;
+      cov_5lbnb4zwq().s[8]++;
+      codeFound = false;
+    } else
+    /* istanbul ignore next */
+    {
+      cov_5lbnb4zwq().b[0][1]++;
+    }
+  }
+  /* istanbul ignore next */
+  cov_5lbnb4zwq().s[9]++;
+  return code;
+}
+export default GenerateCodeUnique;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfNWxibmI0endxIiwiYWN0dWFsQ292ZXJhZ2UiLCJHZW5lcmF0ZUNvZGVVbmlxdWUiLCJyb29tIiwiZiIsImNvZGVGb3VuZCIsInMiLCJjb2RlIiwiaSIsIk1hdGgiLCJmbG9vciIsInJhbmRvbSIsInRvU3RyaW5nIiwicm9vbUlkRXhpc3RzIiwiZmluZE9uZSIsIndoZXJlIiwiYiJdLCJzb3VyY2VzIjpbImdlbmVyYXRlQ29kZS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJhc3luYyBmdW5jdGlvbiBHZW5lcmF0ZUNvZGVVbmlxdWUocm9vbSkge1xyXG4gIGxldCBjb2RlRm91bmQgPSB0cnVlO1xyXG4gIGxldCBjb2RlO1xyXG5cclxuICB3aGlsZSAoY29kZUZvdW5kKSB7XHJcbiAgICBjb2RlID0gXCJcIjtcclxuICAgIGZvciAobGV0IGkgPSAwOyBpIDwgNTsgaSsrKSB7XHJcbiAgICAgIGNvZGUgKz0gTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogMTApLnRvU3RyaW5nKCk7XHJcbiAgICB9XHJcblxyXG4gICAgY29uc3Qgcm9vbUlkRXhpc3RzID0gYXdhaXQgcm9vbS5maW5kT25lKHsgd2hlcmU6IHsgY29kZSB9IH0pO1xyXG5cclxuICAgIGlmICghcm9vbUlkRXhpc3RzKSB7XHJcbiAgICAgIGNvZGVGb3VuZCA9IGZhbHNlO1xyXG4gICAgfVxyXG4gIH1cclxuICByZXR1cm4gY29kZTtcclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgR2VuZXJhdGVDb2RlVW5pcXVlIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFlWTtJQUFBQSxhQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxhQUFBO0FBZlosZUFBZUUsa0JBQWtCQSxDQUFDQyxJQUFJLEVBQUU7RUFBQTtFQUFBSCxhQUFBLEdBQUFJLENBQUE7RUFDdEMsSUFBSUMsU0FBUztFQUFBO0VBQUEsQ0FBQUwsYUFBQSxHQUFBTSxDQUFBLE9BQUcsSUFBSTtFQUNwQixJQUFJQyxJQUFJO0VBQUM7RUFBQVAsYUFBQSxHQUFBTSxDQUFBO0VBRVQsT0FBT0QsU0FBUyxFQUFFO0lBQUE7SUFBQUwsYUFBQSxHQUFBTSxDQUFBO0lBQ2hCQyxJQUFJLEdBQUcsRUFBRTtJQUFDO0lBQUFQLGFBQUEsR0FBQU0sQ0FBQTtJQUNWLEtBQUssSUFBSUUsQ0FBQztJQUFBO0lBQUEsQ0FBQVIsYUFBQSxHQUFBTSxDQUFBLE9BQUcsQ0FBQyxHQUFFRSxDQUFDLEdBQUcsQ0FBQyxFQUFFQSxDQUFDLEVBQUUsRUFBRTtNQUFBO01BQUFSLGFBQUEsR0FBQU0sQ0FBQTtNQUMxQkMsSUFBSSxJQUFJRSxJQUFJLENBQUNDLEtBQUssQ0FBQ0QsSUFBSSxDQUFDRSxNQUFNLENBQUMsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxDQUFDQyxRQUFRLENBQUMsQ0FBQztJQUNuRDtJQUVBLE1BQU1DLFlBQVk7SUFBQTtJQUFBLENBQUFiLGFBQUEsR0FBQU0sQ0FBQSxPQUFHLE1BQU1ILElBQUksQ0FBQ1csT0FBTyxDQUFDO01BQUVDLEtBQUssRUFBRTtRQUFFUjtNQUFLO0lBQUUsQ0FBQyxDQUFDO0lBQUM7SUFBQVAsYUFBQSxHQUFBTSxDQUFBO0lBRTdELElBQUksQ0FBQ08sWUFBWSxFQUFFO01BQUE7TUFBQWIsYUFBQSxHQUFBZ0IsQ0FBQTtNQUFBaEIsYUFBQSxHQUFBTSxDQUFBO01BQ2pCRCxTQUFTLEdBQUcsS0FBSztJQUNuQixDQUFDO0lBQUE7SUFBQTtNQUFBTCxhQUFBLEdBQUFnQixDQUFBO0lBQUE7RUFDSDtFQUFDO0VBQUFoQixhQUFBLEdBQUFNLENBQUE7RUFDRCxPQUFPQyxJQUFJO0FBQ2I7QUFFQSxlQUFlTCxrQkFBa0IiLCJpZ25vcmVMaXN0IjpbXX0=

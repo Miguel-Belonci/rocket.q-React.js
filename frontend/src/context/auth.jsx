@@ -32,15 +32,29 @@ export const AuthProvider = ({ children }) => {
     LoadingStorageData();
   }, []);
 
+  function saveSession(response) {
+    setUser(response.user);
+    localStorage.setItem("@Auth:token", response.token);
+    localStorage.setItem("@Auth:user", JSON.stringify(response.user));
+  }
+
   async function signIn(email, password) {
     const response = await ApiService.auth(email, password);
 
     if (response.error) {
       return response.error;
     } else {
-      setUser(response.user);
-      localStorage.setItem("@Auth:token", response.token);
-      localStorage.setItem("@Auth:user", JSON.stringify(response.user));
+      saveSession(response);
+    }
+  }
+
+  async function signInWithGoogle(credential) {
+    const response = await ApiService.authWithGoogle(credential);
+
+    if (response.error) {
+      return response.error;
+    } else {
+      saveSession(response);
     }
   }
 
@@ -51,6 +65,7 @@ export const AuthProvider = ({ children }) => {
         signed: !!user,
         loading,
         signIn,
+        signInWithGoogle,
         setUser,
         isAdmin: String(user?.role || "").trim().toLowerCase() === "admin",
       }}

@@ -94,7 +94,7 @@ class QuestionController {
       await question.destroy();
 
       res.status(200).json({
-        message: "questão excluida com sucesso!",
+        message: "questão excluída com sucesso!",
       });
     } catch (error) {
       console.log("Erro ao excluir pergunta", error);

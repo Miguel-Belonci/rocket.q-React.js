@@ -1,7 +1,7 @@
 import { Table, Button } from "@chakra-ui/react";
 import ApiService from "../../services/api.js";
 import { useState } from "react";
-import {HeaderCell, TableCell, TableRow} from "../ui/tableElements.jsx";
+import { HeaderCell, TableCell, TableRow } from "../ui/tableElements.jsx";
 
 
 function UsersTable({ users, refreshUsers }) {
@@ -12,7 +12,7 @@ function UsersTable({ users, refreshUsers }) {
     try {
       setLoadingUserId(userId);
       await ApiService.handleUser(userId);
-    } catch (error) {
+    } catch {
       console.log(
         `Falha ao ${currentActive ? "inativar" : "ativar"} o usuário`,
       );
@@ -26,7 +26,7 @@ function UsersTable({ users, refreshUsers }) {
 
   return (
     <Table.Root size="lg">
-      <Table.Caption/>
+      <Table.Caption>{error}</Table.Caption>
       <Table.Header>
         <TableRow>
           <HeaderCell>Email</HeaderCell>

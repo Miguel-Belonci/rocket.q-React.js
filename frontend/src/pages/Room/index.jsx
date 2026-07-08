@@ -59,7 +59,7 @@ function Room() {
     }
 
     fectchData();
-  }, [code]);
+  }, [code, navigate]);
 
   // Cria questões
   const handleQuestionContent = async (e) => {
